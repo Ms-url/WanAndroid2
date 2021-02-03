@@ -1,28 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".HomePageFragment">
-<FrameLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="3">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/home_banner"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    <EditText
-        android:inputType="text"
-        android:lines="1"
-        android:layout_margin="16dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="0dp"
+        android:layout_weight="3">
 
-</FrameLayout>
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:lines="1" />
+
+            <ImageView
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </FrameLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabs_1"
@@ -30,13 +45,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="top"
         android:background="@color/tab_background"
-        app:tabTextAppearance="@style/TabTextStyle"
         app:tabGravity="fill"
-        app:tabTextColor="@color/tab_text"
         app:tabIndicatorColor="@color/teal_200"
         app:tabIndicatorHeight="5dp"
         app:tabMode="fixed"
-        app:tabSelectedTextColor="@color/teal_200" />
+        app:tabSelectedTextColor="@color/teal_200"
+        app:tabTextAppearance="@style/TabTextStyle"
+        app:tabTextColor="@color/tab_text" />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/home_content"
