@@ -10,6 +10,7 @@ import java.util.List;
   用于文章
  */
 public class UsefulData {
+    private String top;
     private String title;
     private String niceDate;
     private String link;
@@ -21,7 +22,7 @@ public class UsefulData {
     private String projectLink;
     private int id;
 
-    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id) {
+    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top) {
         this.title = title;
         this.niceDate = niceDate;
         this.link = link;
@@ -32,6 +33,15 @@ public class UsefulData {
         this.superChapterName = superChapterName;
         this.projectLink = projectLink;
         this.id = id;
+        this.top = top;
+    }
+
+    public String getTop() {
+        return top;
+    }
+
+    public void setTop(String top) {
+        this.top = top;
     }
 
     public String getTitle() {

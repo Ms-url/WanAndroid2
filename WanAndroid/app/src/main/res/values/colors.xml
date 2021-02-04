@@ -15,4 +15,7 @@
     <color name="recycler_view_background_2">#F4F1F1</color>
     <color name="tab_background">#F8FAFB</color>
     <color name="article_item_title">#303030</color>
+    <color name="Top_color_">#0AA5A4</color>
+    <color name="select_2">#14BDBC</color>
+    <color name="red">#E34C4C</color>
 </resources>

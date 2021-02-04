@@ -9,6 +9,13 @@
     <string name="register_page_title">Register</string>
     <string name="log_in_page_title2">wanAndroid</string>
     <string name="dot">  ·  </string>
-
+    <string name="体系">体系</string>
+    <string name="项目">项目</string>
+    <string name="navigation_1">首页</string>
+    <string name="navigation_2">体系</string>
+    <string name="navigation_3">广场</string>
+    <string name="navigation_4">我的</string>
+    <string name="square_1">广场</string>
+    <string name="square_2">我的分享</string>
 
 </resources>

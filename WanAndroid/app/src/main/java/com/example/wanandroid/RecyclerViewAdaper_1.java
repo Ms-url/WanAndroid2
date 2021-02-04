@@ -20,6 +20,7 @@ public class RecyclerViewAdaper_1 extends RecyclerView.Adapter<RecyclerViewAdape
         TextView textView_superChapterName;
         TextView textView_chapterName;
         TextView textView_niceTime;
+        TextView textView_top;
 
         public ViewHolder(View view) {
             super(view);
@@ -27,6 +28,7 @@ public class RecyclerViewAdaper_1 extends RecyclerView.Adapter<RecyclerViewAdape
             textView_niceTime = view.findViewById(R.id.article_niceTime);
             textView_superChapterName = view.findViewById(R.id.article_superChapterName);
             textView_title = view.findViewById(R.id.article_title);
+            textView_top = view.findViewById(R.id.top_article);
 
         }
     }
@@ -65,6 +67,7 @@ public class RecyclerViewAdaper_1 extends RecyclerView.Adapter<RecyclerViewAdape
         holder.textView_superChapterName.setText(usefulData.getSuperChapterName());
         holder.textView_niceTime.setText(usefulData.getNiceDate());
         holder.textView_chapterName.setText(usefulData.getChapterName());
+        holder.textView_top.setText(usefulData.getTop());
 
     }
 

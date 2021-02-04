@@ -47,7 +47,31 @@ public class JsonAnalyze {
                 String superChapterName= jsonObjectk.getString("superChapterName");
                 String projectLink= jsonObjectk.getString("projectLink");
                 int id= jsonObjectk.getInt("id");
-                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id));
+                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,null));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void JsonDataGet_top_article(String jsonData, List<UsefulData> list) {
+        try {
+            Log.e("json解析","文章");
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONArray jsonArray_Datas= jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Datas.getJSONObject(i);
+                String title = jsonObjectk.getString("title");
+                String niceDate = jsonObjectk.getString("niceDate");
+                String link = jsonObjectk.getString("link");
+                String shareUser = jsonObjectk.getString("shareUser");
+                String desc = jsonObjectk.getString("desc");
+                String author = jsonObjectk.getString("author");
+                String chapterName= jsonObjectk.getString("chapterName");
+                String superChapterName= jsonObjectk.getString("superChapterName");
+                String projectLink= jsonObjectk.getString("projectLink");
+                int id= jsonObjectk.getInt("id");
+                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,"置顶   "));
             }
         } catch (JSONException e) {
             e.printStackTrace();

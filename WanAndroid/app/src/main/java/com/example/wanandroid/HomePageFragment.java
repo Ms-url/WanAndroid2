@@ -41,6 +41,8 @@ public class HomePageFragment extends Fragment {
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_2,null,false));
         home_banner.setAdapter(viewpageradapter);
 
+        fragmentList.clear();
+        fragmentTitle.clear();
         fragmentTitle.add("文章");
         fragmentTitle.add("常用网站");
         fragmentList.add(new RecyclerViewFragment());

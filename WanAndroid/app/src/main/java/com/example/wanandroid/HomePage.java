@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 
 public class HomePage extends AppCompatActivity {
     HomePageFragment homePageFragment = new HomePageFragment();
+    KnowledgeHierarchyFragment knowledgeHierarchyFragment = new KnowledgeHierarchyFragment();
+    PublicSquareFragment publicSquareFragment = new PublicSquareFragment();
     private ImageButton imageButton_home_home;
     private ImageButton imageButton_knowledge_hierarchy;
     private ImageButton imageButton_public_square;
@@ -38,6 +40,36 @@ public class HomePage extends AppCompatActivity {
                 FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.home_page_v, homePageFragment);
+                transaction.commit();
+            }
+        });
+        imageButton_knowledge_hierarchy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActionBar actionBar = getSupportActionBar();
+                if (actionBar != null) {
+                    actionBar.hide();
+                }
+
+                //TODO按钮图片切换
+
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.home_page_v, knowledgeHierarchyFragment);
+                transaction.commit();
+            }
+        });
+        imageButton_public_square.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActionBar actionBar = getSupportActionBar();
+                actionBar.show();
+
+                //TODO按钮图片切换
+
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.home_page_v, publicSquareFragment);
                 transaction.commit();
             }
         });

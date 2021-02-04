@@ -24,8 +24,9 @@ public class RecyclerViewFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
     private RecyclerViewAdaper_1 dataAdapter = new RecyclerViewAdaper_1(list);
-    GET_Connection get_connection=new GET_Connection();
-    JsonAnalyze jsonAnalyze=new JsonAnalyze();
+    GET_Connection get_connection = new GET_Connection();
+    JsonAnalyze jsonAnalyze = new JsonAnalyze();
+    private String top_responseData;
     private String responseData;
 
     private Handler handler = new Handler() {
@@ -40,22 +41,22 @@ public class RecyclerViewFragment extends Fragment {
             }
         }
     };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
-        recyclerView=view.findViewById(R.id.recycler_v);
+        recyclerView = view.findViewById(R.id.recycler_v);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
 
-        new Thread(() ->{
+        new Thread(() -> {
+            top_responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/top/json");
+            jsonAnalyze.JsonDataGet_top_article(top_responseData, list);
+            Log.e("list", String.valueOf(list));
             responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json");
-            try {
-                Log.e("线程article","begin");
-                jsonAnalyze.JsonDataGet_article(responseData, list);
-                showResponse();
-            }catch (Exception e){
-
-            }
+            jsonAnalyze.JsonDataGet_article(responseData, list);
+            showResponse();
+            Log.e("list2", String.valueOf(list));
         }).start();
 
         return view;
