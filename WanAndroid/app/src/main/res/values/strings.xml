@@ -17,5 +17,7 @@
     <string name="navigation_4">我的</string>
     <string name="square_1">广场</string>
     <string name="square_2">我的分享</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -4,33 +4,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/tab_background"
     tools:context=".PublicSquareFragment">
 <LinearLayout
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/public_square_button_bt"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginRight="26dp"
+        android:layout_height="wrap_content">
     <TextView
+        android:id="@+id/public_square_button"
         android:gravity="center"
         android:text="@string/square_1"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:textSize="22sp"
         android:layout_weight="1"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="26dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/my_share_button_bt"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="36dp"
+        android:layout_height="wrap_content">
+
     <TextView
+        android:id="@+id/my_share_button"
         android:gravity="center"
         android:text="@string/square_2"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:textSize="22sp"
         android:layout_weight="1"
-        android:layout_marginLeft="26dp"
-        android:layout_marginRight="36dp"
         android:layout_width="0dp"
         android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>
+    <FrameLayout
+        android:background="@color/recycler_view_background_1"
+        android:id="@+id/public_square_frame_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>
