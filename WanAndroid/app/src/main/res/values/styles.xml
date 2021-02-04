@@ -4,7 +4,7 @@
         <item name="android:textSize">@dimen/textSize</item>
 
     </style>
-    <dimen name="textSize">20sp</dimen>
+    <dimen name="textSize">18sp</dimen>
     <dimen name="article_item_title">20sp</dimen>
 
 </resources>
