@@ -32,7 +32,7 @@ public class HomePageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.home_page_fragment_blank, container, false);
+        view = inflater.inflate(R.layout.fragment_home_page, container, false);
         home_banner = view.findViewById(R.id.home_banner);
         home_content = view.findViewById(R.id.home_content);
         tabLayout=view.findViewById(R.id.tabs_1);

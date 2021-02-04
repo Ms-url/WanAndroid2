@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,7 +36,7 @@ public class RecyclerViewApater_web extends RecyclerView.Adapter<RecyclerViewApa
     @NonNull
     @Override
     public RecyclerViewApater_web.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_web, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_web_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
         holder.linearLayout.setOnClickListener(new View.OnClickListener() {

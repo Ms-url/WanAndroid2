@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
     tools:context=".HomePageFragment">
 
     <FrameLayout
@@ -19,19 +18,24 @@
             android:layout_height="match_parent" />
 
         <LinearLayout
+            android:background="@drawable/article_item_shape"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:orientation="horizontal">
 
             <EditText
-                android:layout_weight="8"
+                android:layout_weight="15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:lines="1" />
 
             <ImageView
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/sou"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent" />
