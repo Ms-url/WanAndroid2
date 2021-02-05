@@ -77,4 +77,20 @@ public class JsonAnalyze {
             e.printStackTrace();
         }
     }
+
+    protected void JsonDataGet_project_tree(String jsonData, List<ProjectTreeData> list) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONArray jsonArray_Data = jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Data.getJSONObject(i);
+                int id = jsonObjectk.getInt("id");
+                String name = jsonObjectk.getString("name");
+                list.add(new ProjectTreeData(id,name));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
