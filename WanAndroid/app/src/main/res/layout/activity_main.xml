@@ -38,6 +38,8 @@
                     tools:visibility="visible"/>
 
                 <EditText
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
                     android:maxLength="16"
                     android:inputType="text"
                     android:lines="1"
@@ -71,6 +73,8 @@
                     android:src="@drawable/lock" />
 
                 <EditText
+                    android:layout_gravity="center_vertical"
+                    android:background="@null"
                     android:inputType="text"
                     android:lines="1"
                     android:maxLength="18"

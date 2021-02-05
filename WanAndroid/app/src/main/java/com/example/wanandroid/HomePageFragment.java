@@ -43,7 +43,7 @@ public class HomePageFragment extends Fragment {
 
         fragmentList.clear();
         fragmentTitle.clear();
-        fragmentTitle.add("文章");
+        fragmentTitle.add("精选文章");
         fragmentTitle.add("常用网站");
         fragmentList.add(new RecyclerViewFragment());
         fragmentList.add(new RecyclerViewFragment_web());
