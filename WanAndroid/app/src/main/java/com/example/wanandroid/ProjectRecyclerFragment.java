@@ -4,7 +4,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
@@ -20,7 +19,7 @@ import java.util.List;
 public class ProjectRecyclerFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
-    private List<ProjectTreeData> list = new ArrayList<>();
+    private List<TreeData> list = new ArrayList<>();
     private ProjectTreeAdapter2 dataAdapter = new ProjectTreeAdapter2(list);
     GET_Connection get_connection = new GET_Connection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();

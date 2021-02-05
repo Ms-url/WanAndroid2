@@ -1,7 +1,5 @@
 package com.example.wanandroid;
 
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class ProjectTreeAdapter2 extends RecyclerView.Adapter<ProjectTreeAdapter2.ViewHolder> {
-    private List<ProjectTreeData> mdata;
+    private List<TreeData> mdata;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         Button bt_Name;
@@ -25,7 +23,7 @@ public class ProjectTreeAdapter2 extends RecyclerView.Adapter<ProjectTreeAdapter
         }
     }
 
-    public ProjectTreeAdapter2(List<ProjectTreeData> mdata) {
+    public ProjectTreeAdapter2(List<TreeData> mdata) {
         this.mdata = mdata;
     }
 
@@ -38,7 +36,7 @@ public class ProjectTreeAdapter2 extends RecyclerView.Adapter<ProjectTreeAdapter
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
-                ProjectTreeData projectTreeData=mdata.get(position);
+                TreeData projectTreeData=mdata.get(position);
                 String name = projectTreeData.getName();
                 int id = projectTreeData.getId();
 
@@ -55,7 +53,7 @@ public class ProjectTreeAdapter2 extends RecyclerView.Adapter<ProjectTreeAdapter
 
     @Override
     public void onBindViewHolder(@NonNull ProjectTreeAdapter2.ViewHolder holder, int position) {
-        ProjectTreeData projectTreeData = mdata.get(position);
+        TreeData projectTreeData = mdata.get(position);
         holder.bt_Name.setText(projectTreeData.getName());
 
     }

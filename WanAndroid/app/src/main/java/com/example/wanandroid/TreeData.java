@@ -1,10 +1,10 @@
 package com.example.wanandroid;
 
-public class ProjectTreeData {
+public class TreeData {
     private int id;
     private String name;
 
-    public ProjectTreeData(int id, String name) {
+    public TreeData(int id, String name) {
         this.id = id;
         this.name = name;
     }

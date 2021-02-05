@@ -78,7 +78,7 @@ public class JsonAnalyze {
         }
     }
 
-    protected void JsonDataGet_project_tree(String jsonData, List<ProjectTreeData> list) {
+    protected void JsonDataGet_project_tree(String jsonData, List<TreeData> list) {
         try {
             JSONObject jsonObject = new JSONObject(jsonData);
             JSONArray jsonArray_Data = jsonObject.getJSONArray("data");
@@ -86,11 +86,47 @@ public class JsonAnalyze {
                 JSONObject jsonObjectk = jsonArray_Data.getJSONObject(i);
                 int id = jsonObjectk.getInt("id");
                 String name = jsonObjectk.getString("name");
-                list.add(new ProjectTreeData(id,name));
+                list.add(new TreeData(id,name));
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
+    protected void JsonDataGet_knowledge_tree(String jsonData, List<TreeData> list) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONArray jsonArray_Data = jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Data.getJSONObject(i);
+                int id = jsonObjectk.getInt("id");
+                String name = jsonObjectk.getString("name");
+                list.add(new TreeData(id,name));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+    protected void JsonDataGet_knowledge_tree_item(String jsonData, List<TreeData> list,String key) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONArray jsonArray_Data = jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Data.getJSONObject(i);
+                String name = jsonObjectk.getString("name");
+                if (name.equals(key)){
+                JSONArray jsonArray_children = jsonObjectk.getJSONArray("children");
+                for (int k=0;k<jsonArray_children.length();k++){
+                    JSONObject jsonObject2=jsonArray_children.getJSONObject(k);
+                    int id = jsonObject2.getInt("id");
+                    String mname = jsonObject2.getString("name");
+                    list.add(new TreeData(id,mname));
+                }
+            }}
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
