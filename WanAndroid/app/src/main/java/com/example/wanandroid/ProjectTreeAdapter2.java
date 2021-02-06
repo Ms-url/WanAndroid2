@@ -1,5 +1,6 @@
 package com.example.wanandroid;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,10 +41,10 @@ public class ProjectTreeAdapter2 extends RecyclerView.Adapter<ProjectTreeAdapter
                 String name = projectTreeData.getName();
                 int id = projectTreeData.getId();
 
-               /* Intent intent=new Intent(view.getContext(),    );
+                Intent intent=new Intent(view.getContext(),ProjectActivity.class);
                 intent.putExtra("id",id);
                 intent.putExtra("name",name);
-                view.getContext().startActivity(intent);*/
+                view.getContext().startActivity(intent);
             }
         });
 

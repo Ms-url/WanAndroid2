@@ -42,7 +42,6 @@ public class KnowledgeActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.knowledge_at);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
 
-
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         int id = intent.getIntExtra("id",0);

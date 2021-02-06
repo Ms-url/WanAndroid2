@@ -21,8 +21,9 @@ public class UsefulData {
     private String superChapterName;
     private String projectLink;
     private int id;
+    private String envelopePic;
 
-    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top) {
+    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic) {
         this.title = title;
         this.niceDate = niceDate;
         this.link = link;
@@ -34,6 +35,15 @@ public class UsefulData {
         this.projectLink = projectLink;
         this.id = id;
         this.top = top;
+        this.envelopePic=envelopePic;
+    }
+
+    public String getEnvelopePic() {
+        return envelopePic;
+    }
+
+    public void setEnvelopePic(String envelopePic) {
+        this.envelopePic = envelopePic;
     }
 
     public String getTop() {
