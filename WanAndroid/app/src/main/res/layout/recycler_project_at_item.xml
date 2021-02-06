@@ -1,45 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="6dp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/article_item_shape"
+    android:orientation="vertical">
+
     <TextView
+        android:maxLines="3"
+        android:ellipsize="end"
+        android:layout_margin="5dp"
         android:id="@+id/p_title"
-        android:textSize="18sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textColor="@color/black_2"
+        android:textSize="16sp" />
+
     <ImageView
+        android:layout_margin="5dp"
         android:id="@+id/p_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="186dp"
+        android:scaleType="fitXY" />
+
     <LinearLayout
-        android:orientation="horizontal"
+        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/p_superChapterName"
-        android:layout_marginLeft="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:id="@+id/p_chapterName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/p_superChapterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/article_item_title"
+            android:textSize="12sp" />
+        <TextView
+            android:text="@string/dot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/p_chapterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:textColor="@color/article_item_title"
+            android:textSize="12sp" />
 
     </LinearLayout>
     <TextView
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:layout_margin="5dp"
         android:id="@+id/p_desc"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textSize="10sp" />
     <TextView
+        android:layout_margin="5dp"
         android:id="@+id/p_github_link"
-        android:textColor="@color/teal_200"
-        android:gravity="right"
-        android:textSize="15sp"
-        android:text="@string/github_link"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="@string/github_link"
+        android:textColor="@color/teal_200"
+        android:textSize="13sp" />
 
 </LinearLayout>

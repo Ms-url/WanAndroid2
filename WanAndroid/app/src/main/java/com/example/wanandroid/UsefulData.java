@@ -22,8 +22,9 @@ public class UsefulData {
     private String projectLink;
     private int id;
     private String envelopePic;
+    private Boolean aBoolean;
 
-    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic) {
+    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic,Boolean aBoolean) {
         this.title = title;
         this.niceDate = niceDate;
         this.link = link;
@@ -36,6 +37,15 @@ public class UsefulData {
         this.id = id;
         this.top = top;
         this.envelopePic=envelopePic;
+        this.aBoolean=aBoolean;
+    }
+
+    public Boolean getaBoolean() {
+        return aBoolean;
+    }
+
+    public void setaBoolean(Boolean aBoolean) {
+        this.aBoolean = aBoolean;
     }
 
     public String getEnvelopePic() {

@@ -47,7 +47,7 @@ public class JsonAnalyze {
                 String superChapterName= jsonObjectk.getString("superChapterName");
                 String projectLink= jsonObjectk.getString("projectLink");
                 int id= jsonObjectk.getInt("id");
-                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,null,null));
+                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,null,null,true));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -71,7 +71,7 @@ public class JsonAnalyze {
                 String superChapterName= jsonObjectk.getString("superChapterName");
                 String projectLink= jsonObjectk.getString("projectLink");
                 int id= jsonObjectk.getInt("id");
-                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,"置顶   ",null));
+                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,"置顶   ",null,true));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -147,7 +147,7 @@ public class JsonAnalyze {
                 String projectLink= jsonObjectk.getString("projectLink");
                 String envelopePic= jsonObjectk.getString("envelopePic");
                 int id= jsonObjectk.getInt("id");
-                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,null,envelopePic));
+                list.add(new UsefulData(title,niceDate,link,shareUser,desc,author,chapterName,superChapterName,projectLink,id,null,envelopePic,true));
             }
         } catch (JSONException e) {
             e.printStackTrace();
