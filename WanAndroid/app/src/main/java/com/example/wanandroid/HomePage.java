@@ -87,7 +87,9 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ActionBar actionBar = getSupportActionBar();
-                actionBar.show();
+                if (actionBar != null) {
+                    actionBar.hide();
+                }
 
                 imageButton_home_home.setImageResource(R.mipmap.homepage1);
                 imageButton_knowledge_hierarchy.setImageResource(R.mipmap.system);

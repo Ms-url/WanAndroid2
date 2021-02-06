@@ -1,34 +1,32 @@
 package com.example.wanandroid;
 
-import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProjectRecyclerFragment extends Fragment {
-    private View view;
+public class KnowledgeActivity extends AppCompatActivity {
+
     private RecyclerView recyclerView;
-    private List<TreeData> list = new ArrayList<>();
-    private ProjectTreeAdapter2 dataAdapter = new ProjectTreeAdapter2(list);
+    private List<UsefulData> list = new ArrayList<>();
+    private RecyclerViewAdaper_1 dataAdapter = new RecyclerViewAdaper_1(list);
     GET_Connection get_connection = new GET_Connection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
+
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(KnowledgeActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
                     Log.e("UIchange", "ui");
@@ -38,24 +36,24 @@ public class ProjectRecyclerFragment extends Fragment {
     };
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.activity_knowledge);
+        recyclerView = findViewById(R.id.knowledge_at);
+        recyclerView.addItemDecoration(new SpacesItemDecoration(14));
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_project_recycler, container, false);
-        recyclerView = view.findViewById(R.id.Project_recycler);
-        list.clear();
 
-        new Thread(() ->{
-            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/project/tree/json");
-            jsonAnalyze.JsonDataGet_project_tree(responseData, list);
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("name");
+        int id = intent.getIntExtra("id",0);
+        String cid = String.valueOf(id);
+        Log.e("ididid",cid);
+
+        new Thread(() -> {
+            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json?cid="+id);
+            jsonAnalyze.JsonDataGet_article(responseData, list);
             showResponse();
         }).start();
-
-        return view;
     }
 
     private void showResponse() {
@@ -68,4 +66,7 @@ public class ProjectRecyclerFragment extends Fragment {
             }
         }).start();
     }
+
+
+
 }

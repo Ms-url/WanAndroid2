@@ -79,7 +79,10 @@ public class KnowledgeTreeListFragment extends Fragment {
                 String name=treeData.getName();
                 int iid=treeData.getId();
 
-                //跳转activity
+                Intent intent = new Intent(getActivity(),KnowledgeActivity.class);
+                intent.putExtra("name",name);
+                intent.putExtra("id",iid);
+                view.getContext().startActivity(intent);
 
             }
         });
