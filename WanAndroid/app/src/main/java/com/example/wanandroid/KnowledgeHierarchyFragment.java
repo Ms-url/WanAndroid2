@@ -39,7 +39,7 @@ public class KnowledgeHierarchyFragment extends Fragment {
 
         fragmentList.clear();
         fragmentTitle.clear();
-        fragmentTitle.add("体系");
+        fragmentTitle.add("知识体系");
         fragmentTitle.add("项目");
         fragmentList.add(knowledgeTreeListFragment);
         fragmentList.add(projectRecyclerFragment);

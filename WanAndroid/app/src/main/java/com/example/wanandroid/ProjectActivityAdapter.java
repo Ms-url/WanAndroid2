@@ -27,6 +27,8 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
         TextView textView_chapterName;
         TextView textView_desc;
         TextView textView_github_link;
+        TextView textView_shareUser;
+        TextView textView_niceTime;
         ImageView imageView;
 
         public ViewHolder(View view) {
@@ -37,6 +39,8 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
             textView_superChapterName = view.findViewById(R.id.p_superChapterName);
             textView_title = view.findViewById(R.id.p_title);
             textView_github_link = view.findViewById(R.id.p_github_link);
+            textView_shareUser=view.findViewById(R.id.p_shareUser);
+            textView_niceTime= view.findViewById(R.id.p_niceTime);
         }
     }
 
@@ -84,6 +88,22 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
                 view.getContext().startActivity(intent);
             }
         });
+        holder.textView_title.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                UsefulData usefulData = mdata.get(position);
+                int id = usefulData.getId();
+                String link = usefulData.getLink();
+                String title = usefulData.getTitle();
+
+                Intent intent=new Intent(view.getContext(),web_activity.class);
+                intent.putExtra("id",id);
+                intent.putExtra("links",link);
+                intent.putExtra("title",title);
+                view.getContext().startActivity(intent);
+            }
+        });
         holder.textView_github_link.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +127,8 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
         UsefulData usefulData = mdata.get(position);
         holder.textView_title.setText(usefulData.getTitle());
         holder.textView_superChapterName.setText(usefulData.getSuperChapterName());
-        ;
+        holder.textView_niceTime.setText(usefulData.getNiceDate());
+        holder.textView_shareUser.setText(usefulData.getAuthor());
         holder.textView_desc.setText(usefulData.getDesc());
         holder.textView_chapterName.setText(usefulData.getChapterName());
         Glide.with(mcontext).load(usefulData.getEnvelopePic()).into(holder.imageView);
