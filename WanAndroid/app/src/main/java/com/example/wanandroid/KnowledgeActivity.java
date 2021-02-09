@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,9 @@ public class KnowledgeActivity extends AppCompatActivity {
                     recyclerView.setAdapter(dataAdapter);
                     Log.e("UIchange", "ui");
                     break;
+                case 2:
+                    Toast.makeText(KnowledgeActivity.this, "请求超时", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
     };
@@ -44,28 +48,32 @@ public class KnowledgeActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        int id = intent.getIntExtra("id",0);
+        int id = intent.getIntExtra("id", 0);
         String cid = String.valueOf(id);
-        Log.e("ididid",cid);
+        Log.e("ididid", cid);
 
         new Thread(() -> {
-            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json?cid="+id);
-            jsonAnalyze.JsonDataGet_article(responseData, list);
-            showResponse();
+            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json?cid=" + id);
+            if (responseData.equals("1")) {
+                showResponse(2);
+            } else {
+                jsonAnalyze.JsonDataGet_article(responseData, list);
+                showResponse(1);
+            }
         }).start();
+
     }
 
-    private void showResponse() {
+    private void showResponse(int num) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Message message = new Message();
-                message.what = 1;
+                message.what = num;
                 handler.sendMessage(message);
             }
         }).start();
     }
-
 
 
 }

@@ -4,17 +4,23 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomePage extends AppCompatActivity {
     HomePageFragment homePageFragment = new HomePageFragment();
     KnowledgeHierarchyFragment knowledgeHierarchyFragment = new KnowledgeHierarchyFragment();
     PublicSquareFragment publicSquareFragment = new PublicSquareFragment();
+    MyselfFragment myselfFragment = new MyselfFragment();
     private ImageButton imageButton_home_home;
     private ImageButton imageButton_knowledge_hierarchy;
     private ImageButton imageButton_public_square;
@@ -23,7 +29,6 @@ public class HomePage extends AppCompatActivity {
     private TextView system;
     private TextView place;
     private TextView my;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +37,10 @@ public class HomePage extends AppCompatActivity {
         imageButton_knowledge_hierarchy = findViewById(R.id.knowledge_hierarchy);
         imageButton_public_square = findViewById(R.id.public_square);
         imageButton_myself_space = findViewById(R.id.myself_space);
-        my=findViewById(R.id.my_bt);
-        home=findViewById(R.id.home_bt);
-        system=findViewById(R.id.system_bt);
-        place=findViewById(R.id.place_bt);
+        my = findViewById(R.id.my_bt);
+        home = findViewById(R.id.home_bt);
+        system = findViewById(R.id.system_bt);
+        place = findViewById(R.id.place_bt);
 
         imageButton_home_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,10 +59,11 @@ public class HomePage extends AppCompatActivity {
                 my.setTextColor(Color.parseColor("#7A7A7A"));
                 place.setTextColor(Color.parseColor("#7A7A7A"));
 
-                FragmentManager manager = getSupportFragmentManager();
+               FragmentManager manager = getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.home_page_v, homePageFragment);
                 transaction.commit();
+
             }
         });
         imageButton_knowledge_hierarchy.setOnClickListener(new View.OnClickListener() {
@@ -81,6 +87,7 @@ public class HomePage extends AppCompatActivity {
                 FragmentTransaction transaction = manager.beginTransaction();
                 transaction.replace(R.id.home_page_v, knowledgeHierarchyFragment);
                 transaction.commit();
+
             }
         });
         imageButton_public_square.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +130,10 @@ public class HomePage extends AppCompatActivity {
                 my.setTextColor(Color.parseColor("#5bdeaa"));
                 place.setTextColor(Color.parseColor("#7A7A7A"));
 
+                FragmentManager manager = getSupportFragmentManager();
+                FragmentTransaction transaction = manager.beginTransaction();
+                transaction.replace(R.id.home_page_v,myselfFragment );
+                transaction.commit();
             }
         });
 
@@ -130,4 +141,5 @@ public class HomePage extends AppCompatActivity {
         imageButton_home_home.callOnClick();
 
     }
+
 }

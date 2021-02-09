@@ -8,7 +8,7 @@
     <string name="log_in_page_title">LOG IN</string>
     <string name="register_page_title">Register</string>
     <string name="log_in_page_title2">wanAndroid</string>
-    <string name="dot">  ·  </string>
+    <string name="dot">/</string>
     <string name="体系">体系</string>
     <string name="项目">项目</string>
     <string name="navigation_1">首页</string>
@@ -17,9 +17,12 @@
     <string name="navigation_4">我的</string>
     <string name="square_1">广场</string>
     <string name="square_2">我的分享</string>
-    <string name="github_link">Project Link →</string>
+    <string name="github_link">project link →</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="collect">收藏</string>
     <string name="share">分享</string>
+    <string name="mycollect">我的收藏</string>
+    <string name="myshare">我的积分</string>
+    <string name="worklink">关于开发者</string>
 
 </resources>

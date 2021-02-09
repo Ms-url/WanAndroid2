@@ -40,9 +40,11 @@ public class GET_Connection {
             e.printStackTrace();
         } catch (ProtocolException e) {
             e.printStackTrace();
+            get_connection.setResponseData("1");
             Log.e("time1", "请求超时");
         } catch (IOException e) {
             e.printStackTrace();
+            get_connection.setResponseData("1");
             Log.e("time2", "请求超时");
         }
         String finally_responseData = get_connection.getResponseData();

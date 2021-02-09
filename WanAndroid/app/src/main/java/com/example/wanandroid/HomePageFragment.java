@@ -43,11 +43,12 @@ public class HomePageFragment extends Fragment {
             switch (msg.what) {
                 case 1:
 
-       // Glide.with(getContext()).load("https://www.wanandroid.com/blogimgs/50c115c2-cf6c-4802-aa7b-a4334de444cd.png").into(imageView1);
+                    // Glide.with(getContext()).load("https://www.wanandroid.com/blogimgs/50c115c2-cf6c-4802-aa7b-a4334de444cd.png").into(imageView1);
                     break;
             }
         }
     };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -56,8 +57,9 @@ public class HomePageFragment extends Fragment {
         home_banner = view.findViewById(R.id.home_banner);
         home_content = view.findViewById(R.id.home_content);
         tabLayout = view.findViewById(R.id.tabs_1);
-        imageView1=view.findViewById(R.id.home_banner_1);
+        imageView1 = view.findViewById(R.id.home_banner_1);
 
+        list.clear();
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_1, null, false));
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_2, null, false));
         home_banner.setAdapter(viewpageradapter);
@@ -69,7 +71,7 @@ public class HomePageFragment extends Fragment {
         fragmentList.add(new RecyclerViewFragment());
         fragmentList.add(new RecyclerViewFragment_web());
 
-        new Thread(() ->{
+        new Thread(() -> {
             try {
                 Thread.sleep(8000);
                 showResponse();
@@ -125,6 +127,7 @@ public class HomePageFragment extends Fragment {
             return fragmentTitle.get(position);
         }
     }
+
     private void showResponse() {
         new Thread(new Runnable() {
             @Override

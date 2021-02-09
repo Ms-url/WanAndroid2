@@ -1,7 +1,12 @@
 package com.example.wanandroid;
 
+import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceActivity;
 import android.util.Log;
+import android.widget.HeaderViewListAdapter;
+
+import com.bumptech.glide.load.model.Headers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,11 +17,14 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class POST_Connection {
+import static android.content.Context.MODE_PRIVATE;
+
+public class POST_Connection_3 {
 
     private String responseData;
 
@@ -28,26 +36,41 @@ public class POST_Connection {
         this.responseData = responseData;
     }
 
-    protected String sendGetNetRequest(String murl, HashMap<String,String> params) {
-        POST_Connection post_connection = new POST_Connection();
+    private URL url;
+    private HttpURLConnection connection;
+    private String cook="";
+
+    protected List<String> sendGetNetRequest(String murl, HashMap<String, String> params) {
+        POST_Connection_3 post_connection = new POST_Connection_3();
         try {
-            URL url = new URL(murl);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            cook="";
+            //  URL url = new URL(murl);
+            //  HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            url = new URL(murl);
+            connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
+            connection.setConnectTimeout(50000);
+            connection.setReadTimeout(50000);
             connection.setDoOutput(true);
             connection.setDoInput(true);
 
             StringBuilder dataTowrite = new StringBuilder();
-            for(String key : params.keySet()){
+            for (String key : params.keySet()) {
                 dataTowrite.append(key).append("=").append(params.get(key)).append("&");
             }
 
+
             connection.connect();
 
-            OutputStream outputStream =connection.getOutputStream();
-            outputStream.write(dataTowrite.substring(0,dataTowrite.length()-1).getBytes());
+
+            Map<String, List<String>> cookies_t = connection.getHeaderFields();
+            List<String> cookie_t = cookies_t.get("Set-Cookie");
+            for (int i = 0; i < cookie_t.size(); i++) {
+                Log.e("cookie", cookie_t.get(i));
+            }
+
+            OutputStream outputStream = connection.getOutputStream();
+            outputStream.write(dataTowrite.substring(0, dataTowrite.length() - 1).getBytes());
 
             InputStream in = connection.getInputStream();
             Log.e("send", "ok");
@@ -65,7 +88,24 @@ public class POST_Connection {
             Log.e("time2", "请求超时");
         }
         String finally_responseData = post_connection.getResponseData();
-        return finally_responseData;
+
+        List<String> list = new ArrayList<>();
+
+        Map<String, List<String>> cookies_t2 = connection.getHeaderFields();
+        List<String> cookie_t2 = cookies_t2.get("Set-Cookie");
+        for (int i = 0; i < cookie_t2.size(); i++) {
+            Log.e("cookie", cookie_t2.get(i));
+            String[] k = cookie_t2.get(i).split(";");
+            list.add(k[0]);
+            Log.e("first",list.get(0));
+            cook= cook+list.get(i) +";";
+            Log.e("cook",cook);
+        }
+
+        List<String> list_re = new ArrayList<>();
+        list_re.add(finally_responseData);
+        list_re.add(cook);
+        return list_re;
     }
 
     private String StreamToString(InputStream in) {

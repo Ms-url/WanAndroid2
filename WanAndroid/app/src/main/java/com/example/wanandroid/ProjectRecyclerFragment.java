@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,11 +29,15 @@ public class ProjectRecyclerFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    GridLayoutManager layoutManager = new GridLayoutManager(getActivity(),2);
+                    GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
                     Log.e("UIchange", "ui");
                     break;
+                case 2:
+                    Toast.makeText(getActivity(), "请求超时", Toast.LENGTH_SHORT).show();
+                    break;
+
             }
         }
     };
@@ -49,21 +54,25 @@ public class ProjectRecyclerFragment extends Fragment {
         recyclerView = view.findViewById(R.id.Project_recycler);
         list.clear();
 
-        new Thread(() ->{
+        new Thread(() -> {
             responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/project/tree/json");
-            jsonAnalyze.JsonDataGet_project_tree(responseData, list);
-            showResponse();
+            if (responseData.equals("1")) {
+                showResponse(2);
+            } else {
+                jsonAnalyze.JsonDataGet_project_tree(responseData, list);
+                showResponse(1);
+            }
         }).start();
 
         return view;
     }
 
-    private void showResponse() {
+    private void showResponse(int num) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Message message = new Message();
-                message.what = 1;
+                message.what = num;
                 handler.sendMessage(message);
             }
         }).start();

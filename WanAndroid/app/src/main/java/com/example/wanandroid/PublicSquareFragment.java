@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class PublicSquareFragment extends Fragment {
     private View view;
@@ -35,6 +36,7 @@ public class PublicSquareFragment extends Fragment {
                 case 2:
                     textView_my_share.setTextColor(Color.parseColor("#303030"));
                     break;
+
             }
         }
     };

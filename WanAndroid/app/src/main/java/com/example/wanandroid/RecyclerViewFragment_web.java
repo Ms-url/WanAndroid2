@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +38,9 @@ public class RecyclerViewFragment_web extends Fragment {
                     recyclerView.setAdapter(dataAdapter);
                     Log.e("UIchange", "ui");
                     break;
+                case 2:
+                    Toast.makeText(getActivity(), "请求超时", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
     };
@@ -55,23 +59,23 @@ public class RecyclerViewFragment_web extends Fragment {
         new Thread(() ->{
             Log.e("线程web","begin");
             responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/friend/json");
-            try {
+            if (responseData.equals("1")){
+                showResponse(2);
+            }else {
                 jsonAnalyze.JsonDataGet_web(responseData, list);
-                showResponse();
-            }catch (Exception e){
-
+                showResponse(1);
             }
         }).start();
 
         return view;
     }
 
-    private void showResponse() {
+    private void showResponse(int num) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Message message = new Message();
-                message.what = 1;
+                message.what = num;
                 handler.sendMessage(message);
             }
         }).start();

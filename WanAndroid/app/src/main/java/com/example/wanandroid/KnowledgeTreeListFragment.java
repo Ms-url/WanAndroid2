@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,15 +35,20 @@ public class KnowledgeTreeListFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    KnowledgeTreeListAdapter adapter = new KnowledgeTreeListAdapter(getActivity(), R.layout.simple_list_item,list);
+                    KnowledgeTreeListAdapter adapter = new KnowledgeTreeListAdapter(getActivity(), R.layout.simple_list_item, list);
                     listView.setAdapter(adapter);
                     break;
                 case 2:
-                    KnowledgeTreeListAdapter adapter2 = new KnowledgeTreeListAdapter(getActivity(), R.layout.simple_list_item,list2);
+                    KnowledgeTreeListAdapter adapter2 = new KnowledgeTreeListAdapter(getActivity(), R.layout.simple_list_item, list2);
                     listView2.setAdapter(adapter2);
+                    break;
+                case 3:
+                    Toast.makeText(getActivity(), "请求超时", Toast.LENGTH_SHORT).show();
+                    break;
             }
         }
     };
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,19 +61,26 @@ public class KnowledgeTreeListFragment extends Fragment {
         listView = view.findViewById(R.id.tree_list);
         listView2 = view.findViewById(R.id.tree_item);
 
-        new Thread(() ->{
-            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/tree/json");
-            jsonAnalyze.JsonDataGet_knowledge_tree(responseData, list);
-            showResponse(1);
-        }).start();
+
+            new Thread(() -> {
+                responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/tree/json");
+                if (responseData.equals("1")) {
+                    showResponse(3);
+                } else {
+                    list.clear();
+                    jsonAnalyze.JsonDataGet_knowledge_tree(responseData, list);
+                    showResponse(1);
+                }
+            }).start();
+
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TreeData treeData=list.get(position);
-                String name=treeData.getName();
+                TreeData treeData = list.get(position);
+                String name = treeData.getName();
                 list2.clear();
-                jsonAnalyze.JsonDataGet_knowledge_tree_item(responseData, list2,name);
+                jsonAnalyze.JsonDataGet_knowledge_tree_item(responseData, list2, name);
                 showResponse(2);
             }
         });
@@ -75,13 +88,13 @@ public class KnowledgeTreeListFragment extends Fragment {
         listView2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TreeData treeData=list2.get(position);
-                String name=treeData.getName();
-                int iid=treeData.getId();
+                TreeData treeData = list2.get(position);
+                String name = treeData.getName();
+                int iid = treeData.getId();
 
-                Intent intent = new Intent(getActivity(),KnowledgeActivity.class);
-                intent.putExtra("name",name);
-                intent.putExtra("id",iid);
+                Intent intent = new Intent(getActivity(), KnowledgeActivity.class);
+                intent.putExtra("name", name);
+                intent.putExtra("id", iid);
                 view.getContext().startActivity(intent);
 
             }

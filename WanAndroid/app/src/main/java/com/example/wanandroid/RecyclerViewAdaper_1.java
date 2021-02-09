@@ -49,10 +49,14 @@ public class RecyclerViewAdaper_1 extends RecyclerView.Adapter<RecyclerViewAdape
                 int position = holder.getAdapterPosition();
                 UsefulData usefulData = mdata.get(position);
                 String link = usefulData.getLink();
+                String title = usefulData.getTitle();
+                int iid= usefulData.getId();
                 Log.e("mesge_link",link);
 
                 Intent intent=new Intent(view.getContext(),web_activity.class);
                 intent.putExtra("links",link);
+                intent.putExtra("id",iid);
+                intent.putExtra("title",title);
                 view.getContext().startActivity(intent);
             }
         });

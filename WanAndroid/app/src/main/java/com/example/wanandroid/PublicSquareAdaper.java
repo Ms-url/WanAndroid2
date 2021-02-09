@@ -47,10 +47,14 @@ public class PublicSquareAdaper extends RecyclerView.Adapter<PublicSquareAdaper.
                 int position = holder.getAdapterPosition();
                 UsefulData usefulData = mdata.get(position);
                 String link = usefulData.getLink();
+                String title = usefulData.getTitle();
+                int iid= usefulData.getId();
                 Log.e("item_link",link);
 
                 Intent intent=new Intent(view.getContext(),web_activity.class);
                 intent.putExtra("links",link);
+                intent.putExtra("id",iid);
+                intent.putExtra("title",title);
                 view.getContext().startActivity(intent);
             }
         });

@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,6 +39,10 @@ public class RecyclerViewFragment extends Fragment {
                     recyclerView.setAdapter(dataAdapter);
                     Log.e("UIchange", "ui");
                     break;
+                case 2:
+                    Toast.makeText(getActivity(), "请求超时", Toast.LENGTH_SHORT).show();
+                    break;
+
             }
         }
     };
@@ -51,11 +56,14 @@ public class RecyclerViewFragment extends Fragment {
 
         new Thread(() -> {
             top_responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/top/json");
-            jsonAnalyze.JsonDataGet_top_article(top_responseData, list);
-            Log.e("list", String.valueOf(list));
             responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json");
+            if (top_responseData.equals("1")||responseData.equals("1")){
+                showResponse(2);
+            }else {
+            jsonAnalyze.JsonDataGet_top_article(top_responseData, list);
             jsonAnalyze.JsonDataGet_article(responseData, list);
-            showResponse();
+            showResponse(1);
+            }
             Log.e("list2", String.valueOf(list));
         }).start();
 
@@ -68,12 +76,12 @@ public class RecyclerViewFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    private void showResponse() {
+    private void showResponse(int num) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 Message message = new Message();
-                message.what = 1;
+                message.what = num;
                 handler.sendMessage(message);
             }
         }).start();

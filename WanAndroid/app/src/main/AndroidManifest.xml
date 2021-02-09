@@ -12,19 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroid">
-        <activity android:name=".ProjectActivity"/>
+        <activity android:name=".SearchResult"></activity>
+        <activity android:name=".Search" />
+        <activity android:name=".ProjectActivity" />
         <activity android:name=".KnowledgeActivity" />
         <activity android:name=".web_activity" />
         <activity android:name=".Register" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".HomePage"
-            android:label="wanAndroid">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".HomePage"
+            android:label="wanAndroid"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

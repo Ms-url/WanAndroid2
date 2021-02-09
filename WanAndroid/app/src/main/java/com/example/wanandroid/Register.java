@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,7 +24,9 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class Register extends AppCompatActivity {
     private EditText editText_account;
@@ -36,7 +39,7 @@ public class Register extends AppCompatActivity {
     private ImageView user_accont;
     private ImageView imageView_eye_password;
     private ImageView imageView_eye_repassword;
-    private POST_Connection post_connection = new POST_Connection();
+    private POST_Connection_3 post_connection = new POST_Connection_3();
     private String responseData;
     private static int i = 2;
     private static int ii = 2;
@@ -53,6 +56,13 @@ public class Register extends AppCompatActivity {
                     finish();
                     Toast.makeText(Register.this, "注册成功", Toast.LENGTH_SHORT).show();
                     break;
+                case 3:
+                    Toast.makeText(Register.this, "请求超时", Toast.LENGTH_SHORT).show();
+                    break;
+                case 4:
+                    String ok = (String) msg.obj;
+                    Toast.makeText(Register.this, ok, Toast.LENGTH_SHORT).show();
+
             }
         }
     };
@@ -145,22 +155,24 @@ public class Register extends AppCompatActivity {
                 }
             }
         });
+
+        SharedPreferences.Editor cookie_data = getSharedPreferences("cookie_data", MODE_PRIVATE).edit();
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String username = editText_account.getText().toString().trim();
                 String password = editText_password.getText().toString().trim();
                 String repassword = editText_repassword.getText().toString().trim();
-                int mlongth = editText_account.length();
+                int mlongth = editText_password.length();
                 int mlongth_u = editText_account.length();
                 Log.e("点击", "进入");
 
                 if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
                     Toast.makeText(Register.this, "账号和密码不能为空", Toast.LENGTH_SHORT).show();
                 } else if (mlongth < 6) {
-                    Toast.makeText(Register.this, "密码长度必须打于6", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "密码长度必须大于6", Toast.LENGTH_SHORT).show();
                 } else if (mlongth_u < 4) {
-                    Toast.makeText(Register.this, "账号长度必须打于4", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "账号长度必须大于4", Toast.LENGTH_SHORT).show();
                 } else if (password.equals(repassword)) {
                     HashMap<String, String> map = new HashMap<>();
                     map.put("username", username);
@@ -169,23 +181,29 @@ public class Register extends AppCompatActivity {
                     Log.e("分支", "进入");
                     new Thread(() -> {
                         Log.e("新线程", "开启");
-                        try {
-                            responseData = post_connection.sendGetNetRequest("https://www.wanandroid.com/user/register", map);
-                            Log.e("返回值", responseData);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        try {
-                            JSONObject jsonObject = new JSONObject(responseData);
-                            int jsonerrorCode = jsonObject.getInt("errorCode");
 
-                            if (jsonerrorCode == -1) {
-                                String jsonerrorMsg = jsonObject.getString("errorMsg");
-                                showResponse(jsonerrorMsg, 1);
-                                Log.e("错误", "信息");
+                            List<String> list = new ArrayList<>();
+                            list   = post_connection.sendGetNetRequest("https://www.wanandroid.com/user/register", map);
+                            responseData= list.get(0);
+                            Log.e("返回值", responseData);
+                        try {
+                            if (responseData.equals("1")) {
+                                showResponse(null, 3);
                             } else {
-                                Log.e("注册", "成功");
-                                showResponse(null, 2);
+                                String cook = list.get(1);
+                                cookie_data.putString("cookie", cook);
+                                showResponse(cook,4);
+                                JSONObject jsonObject = new JSONObject(responseData);
+                                int jsonerrorCode = jsonObject.getInt("errorCode");
+
+                                if (jsonerrorCode == -1) {
+                                    String jsonerrorMsg = jsonObject.getString("errorMsg");
+                                    showResponse(jsonerrorMsg, 1);
+                                    Log.e("错误", "信息");
+                                } else {
+                                    Log.e("注册", "成功");
+                                    showResponse(null, 2);
+                                }
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
