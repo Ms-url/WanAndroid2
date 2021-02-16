@@ -3,8 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/add_collect"
-        android:title="@string/collect" />
+        android:icon="@drawable/xing3"
+        android:title="@string/collect"
+        app:showAsAction="always" />
     <item
         android:id="@+id/add_share"
-        android:title="@string/share"/>
+        android:icon="@drawable/share3"
+        app:showAsAction="ifRoom"
+        android:title="@string/share" />
 </menu>

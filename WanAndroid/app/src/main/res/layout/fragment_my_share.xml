@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".recyclerview.MyShareFragment">
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/re_my_bar"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:id="@+id/my_share_re_v"

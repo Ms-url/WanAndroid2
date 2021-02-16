@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4"
+        android:layout_weight="7"
         android:background="@drawable/back_ground" />
 
     <LinearLayout
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <ImageView
-                android:src="@drawable/心"
+                android:src="@drawable/heard"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="1"
                 android:layout_width="0dp"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mycollect" />
             <ImageView
-                android:src="@drawable/进入"
+                android:src="@drawable/entry"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
@@ -53,7 +53,7 @@
             <ImageView
                 android:layout_marginLeft="12dp"
                 android:layout_weight="1"
-                android:src="@drawable/金币"
+                android:src="@drawable/money"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
             <TextView
@@ -65,7 +65,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/myshare" />
             <ImageView
-                android:src="@drawable/进入"
+                android:src="@drawable/entry"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
@@ -79,7 +79,7 @@
             <ImageView
                 android:layout_weight="1"
                 android:layout_marginLeft="12dp"
-                android:src="@drawable/关于"
+                android:src="@drawable/about"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
             <TextView
@@ -91,14 +91,14 @@
                 android:layout_height="wrap_content"
                 android:text="@string/worklink" />
             <ImageView
-                android:src="@drawable/进入"
+                android:src="@drawable/entry"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
         </LinearLayout>
 
         <TextView
-            android:background="#FBFCFD"
+            android:background="@color/white_3"
             android:textColor="@color/select_2"
             android:gravity="center"
             android:text="@string/log_off"

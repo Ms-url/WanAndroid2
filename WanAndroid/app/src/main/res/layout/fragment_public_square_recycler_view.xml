@@ -4,6 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".recyclerview.PublicSquareRecyclerViewFragment">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/re_web_bar"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/public_square_recycler_view"
         android:layout_width="match_parent"

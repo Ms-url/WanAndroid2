@@ -35,7 +35,6 @@ public class WebActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    Toast.makeText(WebActivity.this, u, Toast.LENGTH_SHORT).show();
                     Toast.makeText(WebActivity.this, re, Toast.LENGTH_SHORT).show();
                     break;
 

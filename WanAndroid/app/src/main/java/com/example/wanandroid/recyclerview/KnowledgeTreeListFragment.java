@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.wanandroid.tools.GETConnection;
@@ -34,6 +35,7 @@ public class KnowledgeTreeListFragment extends Fragment {
     GETConnection get_connection = new GETConnection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
+    private ProgressBar progressBar;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -41,6 +43,7 @@ public class KnowledgeTreeListFragment extends Fragment {
                 case 1:
                     KnowledgeTreeListAdapter adapter = new KnowledgeTreeListAdapter(getActivity(), R.layout.simple_list_item, list);
                     listView.setAdapter(adapter);
+                    progressBar.setVisibility(View.GONE);
                     break;
                 case 2:
                     KnowledgeTreeListAdapter adapter2 = new KnowledgeTreeListAdapter(getActivity(), R.layout.simple_list_item, list2);
@@ -64,7 +67,7 @@ public class KnowledgeTreeListFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_knowledge_tree_list, container, false);
         listView = view.findViewById(R.id.tree_list);
         listView2 = view.findViewById(R.id.tree_item);
-
+        progressBar = view.findViewById(R.id.ls_tree_bar);
 
             new Thread(() -> {
                 responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/tree/json");

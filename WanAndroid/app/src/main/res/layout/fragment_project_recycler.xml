@@ -6,6 +6,12 @@
     android:background="@color/recycler_view_background_2"
     tools:context=".recyclerview.ProjectRecyclerFragment">
 
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/re_pr_bar"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Project_recycler"
         android:layout_width="match_parent"

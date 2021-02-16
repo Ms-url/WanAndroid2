@@ -10,17 +10,28 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ListView
-            android:id="@+id/tree_list"
+        <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3.85" />
+            android:layout_height="wrap_content"
+            android:layout_weight="3.85">
+
+            <ProgressBar
+                android:id="@+id/ls_tree_bar"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <ListView
+                android:id="@+id/tree_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
 
         <ListView
             android:id="@+id/tree_item"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="5" >
+            android:layout_weight="5">
 
         </ListView>
     </LinearLayout>

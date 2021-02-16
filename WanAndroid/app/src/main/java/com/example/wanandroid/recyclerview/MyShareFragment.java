@@ -15,6 +15,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
@@ -38,6 +39,7 @@ public class MyShareFragment extends Fragment {
     GETConnection_2 get_connection = new GETConnection_2();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
+    private ProgressBar progressBar;
     String cook;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -46,6 +48,7 @@ public class MyShareFragment extends Fragment {
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
+                    progressBar.setVisibility(View.GONE);
                     Log.e("UIchange", "ui");
                     break;
                 case 2:
@@ -53,6 +56,7 @@ public class MyShareFragment extends Fragment {
                     break;
                 case 3:
                     Toast toast = Toast.makeText(getActivity(), "请先登录", Toast.LENGTH_SHORT);
+                    progressBar.setVisibility(View.GONE);
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
             }
@@ -70,6 +74,8 @@ public class MyShareFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_my_share, container, false);
         recyclerView = view.findViewById(R.id.my_share_re_v);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
+        progressBar = view.findViewById(R.id.re_my_bar);
+
         SharedPreferences save_da = this.getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
         if (TextUtils.isEmpty(cook)) {

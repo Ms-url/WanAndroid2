@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.wanandroid.tools.GETConnection;
@@ -31,6 +32,7 @@ public class ProjectRecyclerFragment extends Fragment {
     GETConnection get_connection = new GETConnection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
+    private ProgressBar progressBar;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -38,7 +40,7 @@ public class ProjectRecyclerFragment extends Fragment {
                     GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
-                    Log.e("UIchange", "ui");
+                    progressBar.setVisibility(View.GONE);
                     break;
                 case 2:
                     Toast.makeText(getActivity(), "请求超时", Toast.LENGTH_SHORT).show();
@@ -58,6 +60,7 @@ public class ProjectRecyclerFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_project_recycler, container, false);
         recyclerView = view.findViewById(R.id.Project_recycler);
+        progressBar = view.findViewById(R.id.re_pr_bar);
         list.clear();
 
         new Thread(() -> {

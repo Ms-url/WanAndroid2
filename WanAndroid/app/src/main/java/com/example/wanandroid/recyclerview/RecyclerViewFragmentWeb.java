@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.wanandroid.tools.GETConnection;
@@ -31,6 +32,7 @@ public class RecyclerViewFragmentWeb extends Fragment {
     private RecyclerViewAdapterWeb dataAdapter=new RecyclerViewAdapterWeb(list);
     GETConnection get_connection=new GETConnection();
     private String responseData;
+    private ProgressBar progressBar;
     JsonAnalyze jsonAnalyze =new JsonAnalyze();
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -39,6 +41,7 @@ public class RecyclerViewFragmentWeb extends Fragment {
                     RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
+                    progressBar.setVisibility(View.GONE);
                     Log.e("UIchange", "ui");
                     break;
                 case 2:
@@ -58,6 +61,7 @@ public class RecyclerViewFragmentWeb extends Fragment {
         view = inflater.inflate(R.layout.fragment_recycler_view_2, container, false);
         recyclerView=view.findViewById(R.id.recycler_web);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
+        progressBar = view.findViewById(R.id.re_bar2);
 
         new Thread(() ->{
             Log.e("线程web","begin");
