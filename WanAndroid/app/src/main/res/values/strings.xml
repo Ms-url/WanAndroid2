@@ -26,5 +26,6 @@
     <string name="worklink">关于开发者</string>
     <string name="search_hint">搜索更多干货</string>
     <string name="search_for_hot">搜索热词</string>
+    <string name="log_off">退出登录</string>
 
 </resources>

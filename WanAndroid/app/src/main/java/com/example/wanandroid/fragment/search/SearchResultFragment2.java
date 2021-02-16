@@ -36,8 +36,6 @@ public class SearchResultFragment2 extends Fragment {
     HashMap<String, String> map = new HashMap<>();
     TextView textView;
     private String key;
-   // SearchActivity searchActivity =(SearchActivity)getActivity();
-  //  Bundle bundle = SearchResultFragment.this.getArguments();
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
