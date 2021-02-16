@@ -1,74 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:background="@color/tab_background"
-    tools:context=".PublicSquareFragment">
+    android:orientation="vertical"
+    tools:context=".fragment.main.PublicSquareFragment">
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-<TextView
-    android:textSize="21sp"
-    android:textColor="@color/white"
-    android:text="@string/square_1"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/square_1"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+        </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
-        android:id="@+id/public_square_button_bt"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginRight="26dp"
-        android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/public_square_button"
-        android:gravity="center"
-        android:text="@string/square_1"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="19sp"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
-
-    </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/my_share_button_bt"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginRight="36dp"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/my_share_button"
-        android:gravity="center"
-        android:text="@string/square_2"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="19sp"
-        android:layout_weight="1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"/>
+        <LinearLayout
+            android:id="@+id/public_square_button_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginRight="26dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/public_square_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/square_1"
+                android:textSize="19sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/my_share_button_bt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="36dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/my_share_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/square_2"
+                android:textSize="19sp" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
     <FrameLayout
-        android:background="@color/recycler_view_background_1"
         android:id="@+id/public_square_frame_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@color/recycler_view_background_1" />
 
 </LinearLayout>

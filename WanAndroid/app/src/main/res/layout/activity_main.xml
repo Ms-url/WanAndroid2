@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/back_ground"
-    tools:context=".MainActivity">
+    android:background="@drawable/bcakgroud_color"
+    tools:context=".log_and_register.LogInActivity">
 
     <TextView
         android:layout_gravity="center"
