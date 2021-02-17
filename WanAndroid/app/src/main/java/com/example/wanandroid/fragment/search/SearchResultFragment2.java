@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.adapter.SearchResultAdapter;
+import com.example.wanandroid.adapter.CommonsAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.tools.JsonAnalyze;
 import com.example.wanandroid.tools.POSTConnection;
@@ -30,7 +30,7 @@ public class SearchResultFragment2 extends Fragment {
     POSTConnection postConnection = new POSTConnection();
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
-    private SearchResultAdapter dataAdapter = new SearchResultAdapter(list);
+    private CommonsAdapter dataAdapter = new CommonsAdapter(list);
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData = null;
     HashMap<String, String> map = new HashMap<>();

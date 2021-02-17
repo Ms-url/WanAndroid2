@@ -21,10 +21,13 @@ public class UsefulData {
     private String superChapterName;
     private String projectLink;
     private int id;
+    private int userId;
     private String envelopePic;
     private Boolean aBoolean;
+    private Boolean fresh;
+    private Boolean collect;
 
-    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic,Boolean aBoolean) {
+    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic,Boolean aBoolean,int userId,Boolean fresh,Boolean collect) {
         this.title = title;
         this.niceDate = niceDate;
         this.link = link;
@@ -38,6 +41,33 @@ public class UsefulData {
         this.top = top;
         this.envelopePic=envelopePic;
         this.aBoolean=aBoolean;
+        this.userId=userId;
+        this.fresh= fresh;
+        this.collect=collect;
+    }
+
+    public Boolean getFresh() {
+        return fresh;
+    }
+
+    public void setFresh(Boolean fresh) {
+        this.fresh = fresh;
+    }
+
+    public Boolean getCollect() {
+        return collect;
+    }
+
+    public void setCollect(Boolean collect) {
+        this.collect = collect;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public Boolean getaBoolean() {

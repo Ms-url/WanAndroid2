@@ -19,38 +19,42 @@ import com.example.wanandroid.main_activitise.WebActivity;
 
 import java.util.List;
 
-public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapter.ViewHolder> {
+public class CommonsAdapter extends RecyclerView.Adapter<CommonsAdapter.ViewHolder> {
     private List<UsefulData> mdata;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView_title;
+        TextView textView_superChapterName;
         TextView textView_chapterName;
         TextView textView_niceTime;
+        TextView textView_top;
         TextView textView_shareUser;
+        TextView textView_author;
         ImageView imageView;
-        ImageView imageView_heard;
 
         public ViewHolder(View view) {
             super(view);
-            textView_chapterName = view.findViewById(R.id.s_article_chapterName);
-            textView_niceTime = view.findViewById(R.id.s_article_niceTime);
-            textView_title = view.findViewById(R.id.s_article_title);
-            textView_shareUser = view.findViewById(R.id.s_shareUser);
-            imageView = view.findViewById(R.id.public_square_us_heard);
-            imageView_heard = view.findViewById(R.id.square_like);
+            textView_chapterName = view.findViewById(R.id.article_chapterName);
+            textView_niceTime = view.findViewById(R.id.article_niceTime);
+            textView_superChapterName = view.findViewById(R.id.article_superChapterName);
+            textView_title = view.findViewById(R.id.article_title);
+            textView_top = view.findViewById(R.id.top_article);
+            textView_shareUser = view.findViewById(R.id.article_shareUser);
+            textView_author = view.findViewById(R.id.article_ath);
+            imageView = view.findViewById(R.id.common_like);
 
         }
     }
 
-    public PublicSquareAdapter(List<UsefulData> mdata) {
+    public CommonsAdapter(List<UsefulData> mdata) {
         this.mdata = mdata;
     }
 
     @NonNull
     @Override
-    public PublicSquareAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_square_item, parent, false);
-        final PublicSquareAdapter.ViewHolder holder = new PublicSquareAdapter.ViewHolder(view);
+    public CommonsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
+        final ViewHolder holder = new ViewHolder(view);
 
         holder.textView_title.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +64,7 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
                 String link = usefulData.getLink();
                 String title = usefulData.getTitle();
                 int iid = usefulData.getId();
-                Log.e("item_link", link);
+                Log.e("mesge_link", link);
 
                 Intent intent = new Intent(view.getContext(), WebActivity.class);
                 intent.putExtra("links", link);
@@ -70,12 +74,29 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
             }
         });
 
+        holder.textView_author.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                UsefulData usefulData = mdata.get(position);
+                int userId = usefulData.getUserId();
+                if (userId == -1) {
+                    Toast.makeText(v.getContext(), "非wanAndroid用户", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(view.getContext(), ShareUserActivity.class);
+                    intent.putExtra("userId", userId);
+                    view.getContext().startActivity(intent);
+                }
+            }
+        });
+
         holder.textView_shareUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 UsefulData usefulData = mdata.get(position);
                 int userId = usefulData.getUserId();
+                Log.e("userId item", String.valueOf(userId));
                 if (userId == -1) {
                     Toast.makeText(v.getContext(), "非wanAndroid用户", Toast.LENGTH_SHORT).show();
                 } else {
@@ -91,32 +112,13 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
             public void onClick(View v) {
                 int position = holder.getAdapterPosition();
                 UsefulData usefulData = mdata.get(position);
-                int userId = usefulData.getUserId();
-                if (userId == -1) {
-                    Toast.makeText(v.getContext(), "非wanAndroid用户", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent intent = new Intent(view.getContext(), ShareUserActivity.class);
-                    intent.putExtra("userId", userId);
-                    view.getContext().startActivity(intent);
-                }
-            }
-        });
-
-        holder.imageView_heard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int position = holder.getAdapterPosition();
-                UsefulData usefulData = mdata.get(position);
 
                 if (usefulData.getCollect()) {
-
-                    holder.imageView_heard.setImageResource(R.drawable.heard);
+                    holder.imageView.setImageResource(R.drawable.heard);
 
                 } else {
 
-                    holder.imageView_heard.setImageResource(R.drawable.like);
-
-
+                    holder.imageView.setImageResource(R.drawable.like);
                 }
             }
         });
@@ -124,12 +126,15 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PublicSquareAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CommonsAdapter.ViewHolder holder, int position) {
         UsefulData usefulData = mdata.get(position);
         holder.textView_title.setText(usefulData.getTitle());
+        holder.textView_superChapterName.setText(usefulData.getSuperChapterName());
         holder.textView_niceTime.setText(usefulData.getNiceDate());
-        holder.textView_chapterName.setText(usefulData.getSuperChapterName());
+        holder.textView_chapterName.setText(usefulData.getChapterName());
+        holder.textView_top.setText(usefulData.getTop());
         holder.textView_shareUser.setText(usefulData.getShareUser());
+        holder.textView_author.setText(usefulData.getAuthor());
 
     }
 

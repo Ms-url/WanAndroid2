@@ -20,7 +20,7 @@ import com.example.wanandroid.tools.JsonAnalyze;
 import com.example.wanandroid.R;
 import com.example.wanandroid.tools.SpacesItemDecoration;
 import com.example.wanandroid.dataClass.UsefulData;
-import com.example.wanandroid.adapter.RecyclerViewAdapter1;
+import com.example.wanandroid.adapter.CommonsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +29,7 @@ public class RecyclerViewFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
-    private RecyclerViewAdapter1 dataAdapter = new RecyclerViewAdapter1(list);
+    private CommonsAdapter dataAdapter = new CommonsAdapter(list);
     GETConnection get_connection = new GETConnection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String top_responseData;

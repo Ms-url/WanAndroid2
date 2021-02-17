@@ -12,11 +12,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.UsefulData;
+import com.example.wanandroid.main_activitise.ShareUserActivity;
 import com.example.wanandroid.main_activitise.WebActivity;
 
 import java.util.List;
 
-public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ViewHolder> {
+public class ShareUserListAdapter extends RecyclerView.Adapter<ShareUserListAdapter.ViewHolder> {
     private List<UsefulData> mdata;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -24,29 +25,31 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         TextView textView_superChapterName;
         TextView textView_chapterName;
         TextView textView_niceTime;
+        TextView textView_top;
         TextView textView_shareUser;
-        TextView textView;
+        TextView textView_author;
 
         public ViewHolder(View view) {
             super(view);
-            textView_chapterName = view.findViewById(R.id.s_article_chapterName);
-            textView_niceTime = view.findViewById(R.id.s_article_niceTime);
-            textView_superChapterName = view.findViewById(R.id.s_article_superChapterName);
-            textView_title = view.findViewById(R.id.s_article_title);
-            textView_shareUser = view.findViewById(R.id.s_article_shareUser);
-            textView = view.findViewById(R.id.s_article_ath);
+            textView_chapterName = view.findViewById(R.id.article_chapterName);
+            textView_niceTime = view.findViewById(R.id.article_niceTime);
+            textView_superChapterName = view.findViewById(R.id.article_superChapterName);
+            textView_title = view.findViewById(R.id.article_title);
+            textView_top = view.findViewById(R.id.top_article);
+            textView_shareUser = view.findViewById(R.id.article_shareUser);
+            textView_author = view.findViewById(R.id.article_ath);
 
         }
     }
 
-    public SearchResultAdapter(List<UsefulData> mdata) {
+    public ShareUserListAdapter(List<UsefulData> mdata) {
         this.mdata = mdata;
     }
 
     @NonNull
     @Override
-    public SearchResultAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_search_result_item, parent, false);
+    public ShareUserListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
         holder.textView_title.setOnClickListener(new View.OnClickListener() {
@@ -67,18 +70,20 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
             }
         });
 
+
         return holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SearchResultAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ShareUserListAdapter.ViewHolder holder, int position) {
         UsefulData usefulData = mdata.get(position);
         holder.textView_title.setText(usefulData.getTitle());
         holder.textView_superChapterName.setText(usefulData.getSuperChapterName());
         holder.textView_niceTime.setText(usefulData.getNiceDate());
         holder.textView_chapterName.setText(usefulData.getChapterName());
-        holder.textView.setText(usefulData.getAuthor());
+        holder.textView_top.setText(usefulData.getTop());
         holder.textView_shareUser.setText(usefulData.getShareUser());
+        holder.textView_author.setText(usefulData.getAuthor());
 
     }
 

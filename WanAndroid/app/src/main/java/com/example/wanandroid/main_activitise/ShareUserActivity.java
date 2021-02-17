@@ -1,6 +1,5 @@
 package com.example.wanandroid.main_activitise;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,13 +10,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.adapter.CommonsAdapter;
+import com.example.wanandroid.adapter.ShareUserListAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.tools.GETConnection;
 import com.example.wanandroid.tools.JsonAnalyze;
@@ -26,30 +24,39 @@ import com.example.wanandroid.tools.SpacesItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class KnowledgeActivity extends AppCompatActivity {
+public class ShareUserActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
-    private CommonsAdapter dataAdapter = new CommonsAdapter(list);
+    private List<String> list2 = new ArrayList<>();
+    private List<Integer> list3 = new ArrayList<>();
+    private ShareUserListAdapter dataAdapter = new ShareUserListAdapter(list);
     GETConnection get_connection = new GETConnection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
-    private ProgressBar progressBar;
-    private TextView textView;
-    private ImageView imageView;
+    ProgressBar progressBar ;
+    private TextView textView_name;
+    private TextView textView_level;
+    private TextView textView_rank;
+    private TextView textView_coinCount;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(KnowledgeActivity.this);
+                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(ShareUserActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
+                    Log.e("list2", String.valueOf(list2.size()));
+                    Log.e("list3", String.valueOf(list3.size()));
+                    textView_rank.setText(" 排名"+list2.get(1)+" ");
+                    textView_name.setText(list2.get(0));
+                    textView_coinCount.setText("积分："+String.valueOf(list3.get(0)));
+                    textView_level.setText(" Lv"+String.valueOf(list3.get(1))+" ");
                     progressBar.setVisibility(View.GONE);
-                    Log.e("UIchange", "ui");
                     break;
                 case 2:
-                    Toast.makeText(KnowledgeActivity.this, "请求超时", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShareUserActivity.this, "请求超时", Toast.LENGTH_SHORT).show();
                     break;
             }
         }
@@ -58,38 +65,27 @@ public class KnowledgeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_knowledge);
-        recyclerView = findViewById(R.id.knowledge_at);
+        setContentView(R.layout.activity_share_user);
+
+        recyclerView = findViewById(R.id.share_user_list_re);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
-        progressBar = findViewById(R.id.re_kn_bar);
-        textView = findViewById(R.id.kn_title);
-        imageView = findViewById(R.id.kn_back);
-
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        progressBar = findViewById(R.id.re_us_bar);
+        textView_coinCount = findViewById(R.id.us_coinCount);
+        textView_level = findViewById(R.id.us_level);
+        textView_name = findViewById(R.id.us_name);
+        textView_rank = findViewById(R.id.us_rank);
 
         Intent intent = getIntent();
-        String name = intent.getStringExtra("name");
-        int id = intent.getIntExtra("id", 0);
-        String cid = String.valueOf(id);
-        Log.e("ididid", cid);
-        textView.setText(name);
+        String userId = String.valueOf(intent.getIntExtra("userId",2));
+        Log.e("userId",userId);
 
         new Thread(() -> {
-            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json?cid=" + id);
-            if (responseData.equals("1")) {
+            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/user/"+userId+"/share_articles/0/json");
+            Log.e("Thread","begin");
+            if (responseData.equals("1")){
                 showResponse(2);
-            } else {
-                jsonAnalyze.JsonDataGet_article(responseData, list);
+            }else {
+                jsonAnalyze.JsonDataGet_shareUser_list(responseData, list,list2,list3);
                 showResponse(1);
             }
         }).start();
@@ -106,6 +102,4 @@ public class KnowledgeActivity extends AppCompatActivity {
             }
         }).start();
     }
-
-
 }

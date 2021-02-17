@@ -51,7 +51,10 @@ public class JsonAnalyze {
                 String superChapterName = jsonObjectk.getString("superChapterName");
                 String projectLink = jsonObjectk.getString("projectLink");
                 int id = jsonObjectk.getInt("id");
-                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, null, true));
+                int userId = jsonObjectk.getInt("userId");
+                Boolean fresh = jsonObjectk.getBoolean("fresh");
+                Boolean collect = jsonObjectk.getBoolean("collect");
+                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, null, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -75,7 +78,10 @@ public class JsonAnalyze {
                 String superChapterName = jsonObjectk.getString("superChapterName");
                 String projectLink = jsonObjectk.getString("projectLink");
                 int id = jsonObjectk.getInt("id");
-                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, "置顶   ", null, true));
+                int userId = jsonObjectk.getInt("userId");
+                Boolean fresh = jsonObjectk.getBoolean("fresh");
+                Boolean collect = jsonObjectk.getBoolean("collect");
+                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, "置顶   ", null, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -153,7 +159,10 @@ public class JsonAnalyze {
                 String projectLink = jsonObjectk.getString("projectLink");
                 String envelopePic = jsonObjectk.getString("envelopePic");
                 int id = jsonObjectk.getInt("id");
-                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true));
+                int userId = jsonObjectk.getInt("userId");
+                Boolean fresh = jsonObjectk.getBoolean("fresh");
+                Boolean collect = jsonObjectk.getBoolean("collect");
+                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -172,6 +181,51 @@ public class JsonAnalyze {
                 String id = jsonObjectk.getString("id");
                 int iid = Integer.parseInt(id);
                 list.add(new TreeData(iid, name));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void JsonDataGet_shareUser_list(String jsonData, List<UsefulData> list,List<String> list2,List<Integer> list3) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONObject jsonObjectData = jsonObject.getJSONObject("data");
+            JSONObject coinInfo = jsonObjectData.getJSONObject("coinInfo");
+
+           // JSONObject nickname_json = coinInfo.getJSONObject("nickname");
+            String nickname = coinInfo.getString("nickname");
+            Log.e("name",nickname);
+          //  JSONObject rank_json = coinInfo.getJSONObject("rank");
+            String rank = coinInfo.getString("rank");
+            list2.add(nickname);
+            list2.add(rank);
+          //  JSONObject coinCount_json = coinInfo.getJSONObject("coinCount");
+            int coinCount = coinInfo.getInt("coinCount");
+          //  JSONObject level_json = coinInfo.getJSONObject("level");
+            int level = coinInfo.getInt("level");
+            list3.add(coinCount);
+            list3.add(level);
+
+            JSONObject shareArticles = jsonObjectData.getJSONObject("shareArticles");
+            JSONArray jsonArray_Datas = shareArticles.getJSONArray("datas");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Datas.getJSONObject(i);
+                String title = jsonObjectk.getString("title");
+                String niceDate = jsonObjectk.getString("niceDate");
+                String link = jsonObjectk.getString("link");
+                String shareUser = jsonObjectk.getString("shareUser");
+                String desc = jsonObjectk.getString("desc");
+                String author = jsonObjectk.getString("author");
+                String chapterName = jsonObjectk.getString("chapterName");
+                String superChapterName = jsonObjectk.getString("superChapterName");
+                String projectLink = jsonObjectk.getString("projectLink");
+                String envelopePic = jsonObjectk.getString("envelopePic");
+                int id = jsonObjectk.getInt("id");
+                int userId = jsonObjectk.getInt("userId");
+                Boolean fresh = jsonObjectk.getBoolean("fresh");
+                Boolean collect = jsonObjectk.getBoolean("collect");
+                list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
             e.printStackTrace();

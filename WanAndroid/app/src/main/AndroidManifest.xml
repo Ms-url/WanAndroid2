@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroid">
+        <activity android:name=".main_activitise.ShareUserActivity"></activity>
         <activity
             android:name=".main_activitise.SearchActivity"
             android:screenOrientation="portrait" />

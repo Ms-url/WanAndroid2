@@ -7,6 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_2">#E7EBED</color>
+    <color name="white_3">#F9FCFD</color>
+    <color name="white_4">#F5F6F8</color>
     <color name="register_button">#3F51B5</color>
     <color name="log_in_button">#3F51B5</color>
     <color name="web_item">#BCBABA</color>
@@ -20,8 +23,9 @@
     <color name="red">#E34C4C</color>
     <color name="past">#5bdeaa</color>
     <color name="project_tree_bt">#9CAFB1</color>
-    <color name="white_2">#E7EBED</color>
     <color name="black_2">#1C1C1C</color>
     <color name="text_sup">#70B9DA</color>
-    <color name="white_3">#F9FCFD</color>
+    <color name="yellow">#A19104</color>
+    <color name="green">#008805</color>
+    <color name="blue">#1279CC</color>
 </resources>
