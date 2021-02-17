@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.UsefulData;
-import com.example.wanandroid.main_activitise.ShareUserActivity;
-import com.example.wanandroid.main_activitise.WebActivity;
+import com.example.wanandroid.activitise.Common.ShareUserActivity;
+import com.example.wanandroid.activitise.Common.WebActivity;
 
 import java.util.List;
 

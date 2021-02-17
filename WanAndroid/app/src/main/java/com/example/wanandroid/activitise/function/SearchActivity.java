@@ -1,4 +1,4 @@
-package com.example.wanandroid.main_activitise;
+package com.example.wanandroid.activitise.function;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;

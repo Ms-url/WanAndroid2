@@ -19,93 +19,113 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:orientation="horizontal">
+
             <ImageView
-                android:src="@drawable/heard"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:src="@drawable/heard" />
 
             <TextView
-                android:layout_weight="9"
-                android:layout_marginLeft="12dp"
-                android:textColor="@color/black_2"
-                android:textSize="20sp"
+                android:id="@+id/my_collect_bt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/mycollect" />
+                android:layout_marginLeft="12dp"
+                android:layout_weight="9"
+                android:text="@string/mycollect"
+                android:textColor="@color/black_2"
+                android:textSize="20sp" />
+
             <ImageView
-                android:src="@drawable/entry"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/entry" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:orientation="horizontal">
+
             <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="1"
-                android:src="@drawable/money"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:src="@drawable/money" />
+
             <TextView
-                android:layout_weight="9"
-                android:layout_marginLeft="12dp"
-                android:textColor="@color/black_2"
-                android:textSize="20sp"
+                android:id="@+id/my_coin_bt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/myshare" />
+                android:layout_marginLeft="12dp"
+                android:layout_weight="9"
+                android:text="@string/myshare"
+                android:textColor="@color/black_2"
+                android:textSize="20sp" />
+
             <ImageView
-                android:src="@drawable/entry"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/entry" />
         </LinearLayout>
 
         <LinearLayout
-            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
             android:orientation="horizontal">
+
             <ImageView
-                android:layout_weight="1"
-                android:layout_marginLeft="12dp"
-                android:src="@drawable/about"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
-            <TextView
-                android:layout_weight="9"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="12dp"
-                android:textColor="@color/black_2"
-                android:textSize="20sp"
+                android:layout_weight="1"
+                android:src="@drawable/about" />
+
+            <TextView
+                android:id="@+id/about_bt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/worklink" />
+                android:layout_marginLeft="12dp"
+                android:layout_weight="9"
+                android:text="@string/worklink"
+                android:textColor="@color/black_2"
+                android:textSize="20sp" />
+
             <ImageView
-                android:src="@drawable/entry"
-                android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/entry" />
         </LinearLayout>
 
-        <TextView
-            android:background="@color/white_3"
-            android:textColor="@color/select_2"
-            android:gravity="center"
-            android:text="@string/log_off"
-            android:textSize="24sp"
-            android:layout_marginTop="56dp"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="46dp"/>
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/log_off_bt"
+                android:layout_width="match_parent"
+                android:layout_height="46dp"
+                android:layout_margin="12dp"
+                android:background="@color/white_3"
+                android:gravity="center"
+                android:text="@string/log_off"
+                android:textColor="@color/select_2"
+                android:textSize="24sp" />
+        </LinearLayout>
+
 
     </LinearLayout>
 

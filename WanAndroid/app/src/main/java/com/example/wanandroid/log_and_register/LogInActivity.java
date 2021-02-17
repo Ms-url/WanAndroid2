@@ -24,7 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.main_activitise.HomePageActivity;
+import com.example.wanandroid.activitise.main.HomePageActivity;
 import com.example.wanandroid.tools.POSTConnection_3;
 
 import org.json.JSONException;

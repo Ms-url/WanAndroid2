@@ -4,7 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".recyclerview.MyShareFragment">
-
+    <TextView
+        android:textSize="18sp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:id="@+id/s_log_in_text"
+        android:text="@string/log_in_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"/>
     <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

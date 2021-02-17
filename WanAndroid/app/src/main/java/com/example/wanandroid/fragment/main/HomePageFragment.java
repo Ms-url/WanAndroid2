@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.main_activitise.SearchActivity;
+import com.example.wanandroid.activitise.function.SearchActivity;
 import com.example.wanandroid.recyclerview.RecyclerViewFragment;
 import com.example.wanandroid.recyclerview.RecyclerViewFragmentWeb;
 import com.google.android.material.tabs.TabLayout;

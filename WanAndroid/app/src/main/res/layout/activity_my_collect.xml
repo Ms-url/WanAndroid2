@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".activitise.Common.ShareUserActivity">
+    tools:context=".activitise.function.MyCollectActivity">
 
     <LinearLayout
         android:background="@color/white_4"
@@ -35,7 +35,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/us_name"
+                android:id="@+id/my_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -49,7 +49,7 @@
 
                 <TextView
                     android:background="@color/green"
-                    android:id="@+id/us_level"
+                    android:id="@+id/my_level"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -59,14 +59,14 @@
                     android:textColor="@color/white"
                     android:layout_marginLeft="12dp"
                     android:background="@color/blue"
-                    android:id="@+id/us_rank"
+                    android:id="@+id/my_rank"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="6dp" />
             </LinearLayout>
 
             <TextView
-                android:id="@+id/us_coinCount"
+                android:id="@+id/my_coinCount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/yellow" />
@@ -82,14 +82,24 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20">
+        <TextView
+            android:textSize="18sp"
+            android:visibility="gone"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/log_in_text"
+            android:text="@string/log_in_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"/>
         <ProgressBar
-            android:id="@+id/re_us_bar"
+            android:id="@+id/re_my_collect_bar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/share_user_list_re"
+            android:id="@+id/my_collect_list_re"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

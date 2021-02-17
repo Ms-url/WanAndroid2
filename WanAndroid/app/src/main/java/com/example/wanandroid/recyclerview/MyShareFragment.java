@@ -1,5 +1,6 @@
 package com.example.wanandroid.recyclerview;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -16,11 +17,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
+import com.example.wanandroid.activitise.function.MyCollectActivity;
 import com.example.wanandroid.adapter.PublicSquareAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
+import com.example.wanandroid.log_and_register.LogInActivity;
 import com.example.wanandroid.tools.GETConnection;
 import com.example.wanandroid.tools.GETConnection_2;
 import com.example.wanandroid.tools.JsonAnalyze;
@@ -40,6 +44,7 @@ public class MyShareFragment extends Fragment {
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
     private ProgressBar progressBar;
+    private TextView textView_logIn;
     String cook;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -74,11 +79,13 @@ public class MyShareFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_my_share, container, false);
         recyclerView = view.findViewById(R.id.my_share_re_v);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
+        textView_logIn = view.findViewById(R.id.s_log_in_text);
         progressBar = view.findViewById(R.id.re_my_bar);
 
         SharedPreferences save_da = this.getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
         if (TextUtils.isEmpty(cook)) {
+            textView_logIn.setVisibility(View.VISIBLE);
             showResponse(3);
         } else {
             new Thread(() -> {
@@ -91,6 +98,15 @@ public class MyShareFragment extends Fragment {
                 }
             }).start();
         }
+
+        textView_logIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LogInActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
         return view;
     }

@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.main_activitise.SearchActivity;
+import com.example.wanandroid.activitise.function.SearchActivity;
 import com.example.wanandroid.recyclerview.KnowledgeTreeListFragment;
 import com.example.wanandroid.recyclerview.ProjectRecyclerFragment;
 import com.google.android.material.tabs.TabLayout;

@@ -1,4 +1,4 @@
-package com.example.wanandroid.main_activitise;
+package com.example.wanandroid.activitise.main;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;

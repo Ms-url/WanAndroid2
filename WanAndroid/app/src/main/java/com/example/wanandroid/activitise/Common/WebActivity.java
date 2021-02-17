@@ -1,4 +1,4 @@
-package com.example.wanandroid.main_activitise;
+package com.example.wanandroid.activitise.Common;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

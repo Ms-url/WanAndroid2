@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.wanandroid.R;
 import com.example.wanandroid.adapter.KnowledgeTreeListAdapter;
 import com.example.wanandroid.dataClass.TreeData;
-import com.example.wanandroid.main_activitise.SearchActivity;
+import com.example.wanandroid.activitise.function.SearchActivity;
 import com.example.wanandroid.tools.GETConnection;
 import com.example.wanandroid.tools.JsonAnalyze;
 
