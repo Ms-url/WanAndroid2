@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.wanandroid.R;
+import com.example.wanandroid.activitise.function.CoinActivity;
 import com.example.wanandroid.activitise.function.MyCollectActivity;
 
 public class MyselfFragment extends Fragment {
@@ -42,6 +43,13 @@ public class MyselfFragment extends Fragment {
             }
         });
 
+        textView_myCoin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CoinActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }

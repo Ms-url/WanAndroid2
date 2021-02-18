@@ -12,8 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroid">
-        <activity android:name=".activitise.function.MyCollectActivity"/>
-        <activity android:name=".activitise.Common.ShareUserActivity" />
+        <activity android:name=".activitise.function.CoinActivity"></activity>
+        <activity android:name=".activitise.function.MyCollectActivity" />
+        <activity android:name=".activitise.common.ShareUserActivity" />
         <activity
             android:name=".activitise.function.SearchActivity"
             android:screenOrientation="portrait" />
@@ -24,7 +25,7 @@
             android:name=".activitise.function.KnowledgeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activitise.Common.WebActivity"
+            android:name=".activitise.common.WebActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".log_and_register.RegisterActivity"
@@ -40,8 +41,8 @@
         </activity>
         <activity
             android:name=".activitise.main.HomePageActivity"
-            android:launchMode="singleTask"
             android:label="wanAndroid"
+            android:launchMode="singleTask"
             android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 

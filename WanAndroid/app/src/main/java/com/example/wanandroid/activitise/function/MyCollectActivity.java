@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.activitise.Common.ShareUserActivity;
 import com.example.wanandroid.adapter.ShareUserListAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.log_and_register.LogInActivity;
@@ -64,6 +63,10 @@ public class MyCollectActivity extends AppCompatActivity {
                 case 2:
                     Toast.makeText(MyCollectActivity.this, "请求超时", Toast.LENGTH_SHORT).show();
                     break;
+                case 3:
+                    textView_rank.setText(" 排名 0 ");
+                    textView_coinCount.setText("积分：0" );
+                    textView_level.setText(" Lv 0 ");
             }
         }
     };
@@ -97,10 +100,7 @@ public class MyCollectActivity extends AppCompatActivity {
             textView_name.setText("未登录");
             progressBar.setVisibility(View.GONE);
             textView_login.setVisibility(View.VISIBLE);
-            textView_rank.setText(" 排名 0 ");
-            textView_name.setText(list2.get(0));
-            textView_coinCount.setText("积分：0" );
-            textView_level.setText(" Lv 0 ");
+            showResponse(3);
             Toast toast=Toast.makeText(MyCollectActivity.this,"请先登录",Toast.LENGTH_LONG);
             toast.setGravity(Gravity.CENTER, 0, 0);
             toast.show();

@@ -1,4 +1,4 @@
-package com.example.wanandroid.activitise.Common;
+package com.example.wanandroid.activitise.common;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

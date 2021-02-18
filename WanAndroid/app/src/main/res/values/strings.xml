@@ -28,5 +28,7 @@
     <string name="search_for_hot">搜索热词</string>
     <string name="log_off">退出登录</string>
     <string name="log_in_text">点击登录</string>
+    <string name="coin_get">我的积分</string>
+    <string name="coin_rank">积分排行</string>
 
 </resources>

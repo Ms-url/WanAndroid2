@@ -2,6 +2,7 @@ package com.example.wanandroid.tools;
 
 import android.util.Log;
 
+import com.example.wanandroid.dataClass.CoinData;
 import com.example.wanandroid.dataClass.TreeData;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.dataClass.WebData;
@@ -193,16 +194,12 @@ public class JsonAnalyze {
             JSONObject jsonObjectData = jsonObject.getJSONObject("data");
             JSONObject coinInfo = jsonObjectData.getJSONObject("coinInfo");
 
-           // JSONObject nickname_json = coinInfo.getJSONObject("nickname");
             String nickname = coinInfo.getString("nickname");
             Log.e("name",nickname);
-          //  JSONObject rank_json = coinInfo.getJSONObject("rank");
             String rank = coinInfo.getString("rank");
             list2.add(nickname);
             list2.add(rank);
-          //  JSONObject coinCount_json = coinInfo.getJSONObject("coinCount");
             int coinCount = coinInfo.getInt("coinCount");
-          //  JSONObject level_json = coinInfo.getJSONObject("level");
             int level = coinInfo.getInt("level");
             list3.add(coinCount);
             list3.add(level);
@@ -231,5 +228,43 @@ public class JsonAnalyze {
             e.printStackTrace();
         }
     }
+
+    public void JsonDataGet_my_coin(String jsonData, List<CoinData> list) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONObject jsonObjectData = jsonObject.getJSONObject("data");
+            JSONArray jsonArray_Datas = jsonObjectData.getJSONArray("datas");
+
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Datas.getJSONObject(i);
+                String desc = jsonObjectk.getString("desc");
+                String reason= jsonObjectk.getString("reason");
+
+                list.add(new CoinData(desc,reason,null,null,null,null)  );
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void JsonDataGet_coin_rank(String jsonData, List<CoinData> list) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONObject jsonObjectData = jsonObject.getJSONObject("data");
+            JSONArray jsonArray_Datas = jsonObjectData.getJSONArray("datas");
+
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Datas.getJSONObject(i);
+                String username = jsonObjectk.getString("username");
+                String coinCount =String.valueOf(jsonObjectk.getInt("coinCount")) ;
+                String level=String.valueOf(jsonObjectk.getInt("level")) ;
+                String rank=String.valueOf(jsonObjectk.getInt("rank")) ;
+                list.add(new CoinData(null,null,coinCount,level,username,rank)  );
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }

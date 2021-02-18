@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.UsefulData;
-import com.example.wanandroid.activitise.Common.WebActivity;
+import com.example.wanandroid.activitise.common.WebActivity;
 
 import java.util.List;
 
