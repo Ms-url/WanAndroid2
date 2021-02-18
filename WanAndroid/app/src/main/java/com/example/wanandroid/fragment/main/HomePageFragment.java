@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -44,7 +45,6 @@ public class HomePageFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    // Glide.with(getContext()).load("https://www.wanandroid.com/blogimgs/50c115c2-cf6c-4802-aa7b-a4334de444cd.png").into(imageView1);
                     break;
             }
         }
@@ -64,6 +64,7 @@ public class HomePageFragment extends Fragment {
         list.clear();
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_1, null, false));
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_2, null, false));
+        list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_3, null, false));
         home_banner.setAdapter(viewpageradapter);
 
         fragmentList.clear();
@@ -107,7 +108,7 @@ public class HomePageFragment extends Fragment {
         return view;
     }
 
-    class ViewPagerAdapter extends FragmentPagerAdapter {
+     class ViewPagerAdapter extends FragmentPagerAdapter {
         public ViewPagerAdapter(FragmentManager fm, int behavior) {
             super(fm, behavior);
         }
@@ -140,4 +141,5 @@ public class HomePageFragment extends Fragment {
             }
         }).start();
     }
+
 }

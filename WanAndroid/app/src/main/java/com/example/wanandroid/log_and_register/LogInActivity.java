@@ -43,6 +43,8 @@ public class LogInActivity extends AppCompatActivity {
     private ImageView imageView_user;
     private ImageView imageView_clock;
     TextView textView;
+    TextView textView_visitor_log;
+    TextView textView_way_of_log;
     // private POST_Connection post_connection = new POST_Connection();
     private POSTConnection_3 post_connection = new POSTConnection_3();
     private String responseData;
@@ -73,7 +75,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_log_in);
         imageView_user = findViewById(R.id.im_log_in_username);
         imageView_clock = findViewById(R.id.im_log_in_clock);
         editText_account = findViewById(R.id.edit_LOGIN_account);
@@ -82,7 +84,10 @@ public class LogInActivity extends AppCompatActivity {
         button_register = findViewById(R.id.bt_Register_intent);
         imageView_eye = findViewById(R.id.edit_eye);
         textView = findViewById(R.id.tv_log_in);
-
+        textView_visitor_log = findViewById(R.id.visitor_log_in);
+        textView_way_of_log = findViewById(R.id.way_of_log);
+        SharedPreferences.Editor save_data = getSharedPreferences("user_data", MODE_PRIVATE).edit();
+        SharedPreferences.Editor cookie_data = getSharedPreferences("cook_data", MODE_PRIVATE).edit();
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
         String u = save_da.getString("cookie", "");
 
@@ -95,13 +100,31 @@ public class LogInActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
+                cookie_data.putString("cookie", "loginUserName_wanandroid_com=Ms-url;token_pass_wanandroid_com=3e3be32c9fb0361dc09e120671e801b3;JSESSIONID=A6B832814D8FD80CB52F87BC13B84854;token_pass=3e3be32c9fb0361dc09e120671e801b3");
+                save_data.putString("username", "Ms-url");
+                save_data.putString("password", "url123");
+                save_data.putInt("user_id",87723);
                 startActivity(intent);
             }
         });
 
+        textView_visitor_log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
+                startActivity(intent);
+            }
+        });
 
-        SharedPreferences.Editor save_data = getSharedPreferences("user_data", MODE_PRIVATE).edit();
-        SharedPreferences.Editor cookie_data = getSharedPreferences("cook_data", MODE_PRIVATE).edit();
+        textView_way_of_log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(LogInActivity.this,"暂不支持其他方式登录",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();
