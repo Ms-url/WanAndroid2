@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -16,7 +17,7 @@ import com.example.wanandroid.activitise.common.WebActivity;
 
 import java.util.List;
 
-public class ShareUserListAdapter extends RecyclerView.Adapter<ShareUserListAdapter.ViewHolder> {
+public class ShareUserArticleRcyclerAdapter extends RecyclerView.Adapter<ShareUserArticleRcyclerAdapter.ViewHolder> {
     private List<UsefulData> mdata;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -27,6 +28,7 @@ public class ShareUserListAdapter extends RecyclerView.Adapter<ShareUserListAdap
         TextView textView_top;
         TextView textView_shareUser;
         TextView textView_author;
+        ImageView imageView_heard;
 
         public ViewHolder(View view) {
             super(view);
@@ -37,17 +39,18 @@ public class ShareUserListAdapter extends RecyclerView.Adapter<ShareUserListAdap
             textView_top = view.findViewById(R.id.top_article);
             textView_shareUser = view.findViewById(R.id.article_shareUser);
             textView_author = view.findViewById(R.id.article_ath);
+            imageView_heard= view.findViewById(R.id.common_like);
 
         }
     }
 
-    public ShareUserListAdapter(List<UsefulData> mdata) {
+    public ShareUserArticleRcyclerAdapter(List<UsefulData> mdata) {
         this.mdata = mdata;
     }
 
     @NonNull
     @Override
-    public ShareUserListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ShareUserArticleRcyclerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
@@ -74,7 +77,7 @@ public class ShareUserListAdapter extends RecyclerView.Adapter<ShareUserListAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ShareUserListAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ShareUserArticleRcyclerAdapter.ViewHolder holder, int position) {
         UsefulData usefulData = mdata.get(position);
         holder.textView_title.setText(usefulData.getTitle());
         holder.textView_superChapterName.setText(usefulData.getSuperChapterName());
@@ -83,7 +86,9 @@ public class ShareUserListAdapter extends RecyclerView.Adapter<ShareUserListAdap
         holder.textView_top.setText(usefulData.getTop());
         holder.textView_shareUser.setText(usefulData.getShareUser());
         holder.textView_author.setText(usefulData.getAuthor());
-
+        if (usefulData.getCollect()) {
+            holder.imageView_heard.setImageResource(R.drawable.heard);
+        }
     }
 
     @Override

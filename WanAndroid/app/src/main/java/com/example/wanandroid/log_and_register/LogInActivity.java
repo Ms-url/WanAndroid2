@@ -104,6 +104,8 @@ public class LogInActivity extends AppCompatActivity {
                 save_data.putString("username", "Ms-url");
                 save_data.putString("password", "url123");
                 save_data.putInt("user_id",87723);
+                cookie_data.apply();
+                save_data.apply();
                 startActivity(intent);
             }
         });
@@ -164,6 +166,7 @@ public class LogInActivity extends AppCompatActivity {
                             } else {
                                 String cook = list.get(1);
                                 cookie_data.putString("cookie", cook);
+                                cookie_data.apply();
                                 showResponse(cook, 3);
                                 JSONObject jsonObject = new JSONObject(responseData);
                                 int jsonerrorCode = jsonObject.getInt("errorCode");
@@ -180,6 +183,7 @@ public class LogInActivity extends AppCompatActivity {
                                     save_data.putString("username", username);
                                     save_data.putString("password", password);
                                     save_data.putInt("user_id", user_id);
+                                    save_data.apply();
 
                                     Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
                                     startActivity(intent);
@@ -229,7 +233,7 @@ public class LogInActivity extends AppCompatActivity {
                 } else if (mlongth < 6 && mlongth > 0) {
                     editText_password.setHint("密码不能为空");//不能设置int，会闪退
                     editText_password.setHintTextColor(Color.parseColor("#FA1065"));
-                    imageView_clock.setImageResource(R.drawable.red_clock);
+                    imageView_clock.setImageResource(R.drawable.clock_red2);
                 } else {
                     imageView_clock.setImageResource(R.drawable.lock);
                 }

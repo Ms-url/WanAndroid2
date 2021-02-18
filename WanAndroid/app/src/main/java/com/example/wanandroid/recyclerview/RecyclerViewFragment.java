@@ -1,5 +1,6 @@
 package com.example.wanandroid.recyclerview;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.wanandroid.tools.GETConnection;
+import com.example.wanandroid.tools.GETConnection_2;
 import com.example.wanandroid.tools.JsonAnalyze;
 import com.example.wanandroid.R;
 import com.example.wanandroid.tools.SpacesItemDecoration;
@@ -25,15 +27,18 @@ import com.example.wanandroid.adapter.CommonsAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class RecyclerViewFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
     private CommonsAdapter dataAdapter = new CommonsAdapter(list);
-    GETConnection get_connection = new GETConnection();
+    GETConnection_2 get_connection = new GETConnection_2();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String top_responseData;
     private String responseData;
+    private String cook;
     ProgressBar progressBar ;
 
     private Handler handler = new Handler() {
@@ -62,9 +67,12 @@ public class RecyclerViewFragment extends Fragment {
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
         progressBar = view.findViewById(R.id.re_bar1);
 
+        SharedPreferences save_da = getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
+        cook = save_da.getString("cookie", "");
+
         new Thread(() -> {
-            top_responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/top/json");
-            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json");
+            top_responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/top/json",cook);
+            responseData = get_connection.sendGetNetRequest("https://www.wanandroid.com/article/list/0/json",cook);
             if (top_responseData.equals("1")||responseData.equals("1")){
                 showResponse(2);
             }else {

@@ -135,6 +135,9 @@ public class CommonsAdapter extends RecyclerView.Adapter<CommonsAdapter.ViewHold
         holder.textView_top.setText(usefulData.getTop());
         holder.textView_shareUser.setText(usefulData.getShareUser());
         holder.textView_author.setText(usefulData.getAuthor());
+        if (usefulData.getCollect()) {
+            holder.imageView.setImageResource(R.drawable.heard);
+        }
 
     }
 

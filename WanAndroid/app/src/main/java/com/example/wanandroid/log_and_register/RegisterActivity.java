@@ -101,7 +101,7 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (mlongth < 6 && mlongth > 0) {
                     editText_password.setHint("密码不能为空");//不能设置int，会闪退
                     editText_password.setHintTextColor(Color.parseColor("#FA1065"));
-                    pass_clock.setImageResource(R.drawable.red_clock);
+                    pass_clock.setImageResource(R.drawable.clock_red2);
                 } else {
                     pass_clock.setImageResource(R.drawable.lock);
                 }
@@ -146,14 +146,13 @@ public class RegisterActivity extends AppCompatActivity {
                 } else if (mlongth < 6 && mlongth > 0) {
                     editText_repassword.setHint("密码不能为空");//不能设置int，会闪退
                     editText_repassword.setHintTextColor(Color.parseColor("#FA1065"));
-                    repass_clock.setImageResource(R.drawable.red_clock);
+                    repass_clock.setImageResource(R.drawable.clock_red2);
                 } else {
                     repass_clock.setImageResource(R.drawable.lock);
                 }
             }
         });
 
-        SharedPreferences.Editor cookie_data = getSharedPreferences("cookie_data", MODE_PRIVATE).edit();
         button_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -36,11 +36,12 @@ public class HomePageFragment extends Fragment {
     private com.example.wanandroid.adapter.ViewPagerAdapter viewpageradapter = new com.example.wanandroid.adapter.ViewPagerAdapter(list);
     TabLayout tabLayout;
     TextView text;
-    List<Fragment> fragmentList = new ArrayList<>();
-    // List<Fragment> fragmentList_banner = new ArrayList<>();
-    List<String> fragmentTitle = new ArrayList<>();
-    // BannerFragment_1 bannerFragment_1 = new BannerFragment_1();
     private ImageView imageView1;
+    ImageView imageView_dot1;
+    ImageView imageView_dot2;
+    ImageView imageView_dot3;
+    List<Fragment> fragmentList = new ArrayList<>();
+    List<String> fragmentTitle = new ArrayList<>();
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
@@ -60,12 +61,45 @@ public class HomePageFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabs_1);
         imageView1 = view.findViewById(R.id.home_banner_1);
         text = view.findViewById(R.id.home_search);
+        imageView_dot1 = view.findViewById(R.id.dot_1);
+        imageView_dot2= view.findViewById(R.id.dot_2);
+        imageView_dot3 = view.findViewById(R.id.dot_3);
 
         list.clear();
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_1, null, false));
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_2, null, false));
         list.add(LayoutInflater.from(getContext()).inflate(R.layout.view_pager_item_3, null, false));
         home_banner.setAdapter(viewpageradapter);
+
+        home_banner.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        imageView_dot1.setImageResource(R.drawable.dot_big_bl);
+                        imageView_dot2.setImageResource(R.drawable.dot_big);
+                        imageView_dot3.setImageResource(R.drawable.dot_big);
+                    case 1:
+                        imageView_dot1.setImageResource(R.drawable.dot_big);
+                        imageView_dot2.setImageResource(R.drawable.dot_big_bl);
+                        imageView_dot3.setImageResource(R.drawable.dot_big);
+                    case 2:
+                        imageView_dot1.setImageResource(R.drawable.dot_big);
+                        imageView_dot2.setImageResource(R.drawable.dot_big);
+                        imageView_dot3.setImageResource(R.drawable.dot_big_bl);
+
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
 
         fragmentList.clear();
         fragmentTitle.clear();
@@ -77,7 +111,7 @@ public class HomePageFragment extends Fragment {
         text.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), SearchActivity.class);
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
                 startActivity(intent);
             }
         });
@@ -108,7 +142,7 @@ public class HomePageFragment extends Fragment {
         return view;
     }
 
-     class ViewPagerAdapter extends FragmentPagerAdapter {
+    class ViewPagerAdapter extends FragmentPagerAdapter {
         public ViewPagerAdapter(FragmentManager fm, int behavior) {
             super(fm, behavior);
         }

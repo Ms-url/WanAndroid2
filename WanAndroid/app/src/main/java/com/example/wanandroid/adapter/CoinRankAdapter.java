@@ -49,9 +49,9 @@ public class CoinRankAdapter extends RecyclerView.Adapter<CoinRankAdapter.ViewHo
     public void onBindViewHolder(@NonNull CoinRankAdapter.ViewHolder holder, int position) {
         CoinData usefulData = mdata.get(position);
         holder.textView_rank.setText(usefulData.getRank());
-        holder.textView_name.setText(usefulData.getUsername()+" ");
+        holder.textView_name.setText(usefulData.getUsername());
         holder.textView_coin.setText(usefulData.getCoinCount());
-        holder.textView_level.setText(" Lv "+usefulData.getLevel()+" ");
+        holder.textView_level.setText("Lv"+usefulData.getLevel());
 
     }
 

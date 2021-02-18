@@ -30,7 +30,6 @@ public class POSTConnection_2 {
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
 
-         // connection.setRequestProperty("cookie","loginUserName_wanandroid_com=hash;token_pass_wanandroid_com=4e2bae5cebc948db2201c8496f31f385;JSESSIONID=DEFC17548A8D31E44B58C7C423394B8B;loginUserName=hash;token_pass=4e2bae5cebc948db2201c8496f31f385");
             connection.setRequestProperty("cookie",cook);
 
             connection.setConnectTimeout(5000);

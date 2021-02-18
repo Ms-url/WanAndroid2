@@ -80,8 +80,8 @@ public class WebActivity extends AppCompatActivity {
 
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
         u = save_da.getString("cookie", "");
+        Log.e("cookie",u);
 
-        Log.e("web_begin", "begin");
         Intent intent = getIntent();
         link = intent.getStringExtra("links");
         id = intent.getIntExtra("id", 0);

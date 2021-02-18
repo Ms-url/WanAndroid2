@@ -15,7 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.adapter.ShareUserListAdapter;
+import com.example.wanandroid.adapter.ShareUserArticleRcyclerAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.tools.GETConnection;
 import com.example.wanandroid.tools.JsonAnalyze;
@@ -30,7 +30,7 @@ public class ShareUserActivity extends AppCompatActivity {
     private List<UsefulData> list = new ArrayList<>();
     private List<String> list2 = new ArrayList<>();
     private List<Integer> list3 = new ArrayList<>();
-    private ShareUserListAdapter dataAdapter = new ShareUserListAdapter(list);
+    private ShareUserArticleRcyclerAdapter dataAdapter = new ShareUserArticleRcyclerAdapter(list);
     GETConnection get_connection = new GETConnection();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
@@ -85,7 +85,8 @@ public class ShareUserActivity extends AppCompatActivity {
             if (responseData.equals("1")){
                 showResponse(2);
             }else {
-                jsonAnalyze.JsonDataGet_shareUser_list(responseData, list,list2,list3);
+                jsonAnalyze.JsonDataGet_shareUser_list(responseData, list);
+                jsonAnalyze.JsonDataGet_shareUser_data(responseData,list2,list3);
                 showResponse(1);
             }
         }).start();

@@ -3,6 +3,7 @@ package com.example.wanandroid.tools;
 import android.util.Log;
 
 import com.example.wanandroid.dataClass.CoinData;
+import com.example.wanandroid.dataClass.CollectData;
 import com.example.wanandroid.dataClass.TreeData;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.dataClass.WebData;
@@ -88,6 +89,28 @@ public class JsonAnalyze {
             e.printStackTrace();
         }
     }
+
+    public void JsonDataGet_collect(String jsonData, List<CollectData> list) {
+        try {
+            Log.e("json解析", "collect文章");
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONObject jsonObjectData = jsonObject.getJSONObject("data");
+            JSONArray jsonArray_Datas = jsonObjectData.getJSONArray("datas");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Datas.getJSONObject(i);
+                String title = jsonObjectk.getString("title");
+                String niceDate = jsonObjectk.getString("niceDate");
+                String link = jsonObjectk.getString("link");
+                String desc = jsonObjectk.getString("desc");
+                String chapterName = jsonObjectk.getString("chapterName");
+                int id = jsonObjectk.getInt("id");
+                list.add(new CollectData(title, niceDate, link, desc, chapterName, null, id));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void JsonDataGet_project_tree(String jsonData, List<TreeData> list) {
         try {
@@ -188,21 +211,10 @@ public class JsonAnalyze {
         }
     }
 
-    public void JsonDataGet_shareUser_list(String jsonData, List<UsefulData> list,List<String> list2,List<Integer> list3) {
+    public void JsonDataGet_shareUser_list(String jsonData, List<UsefulData> list) {
         try {
             JSONObject jsonObject = new JSONObject(jsonData);
             JSONObject jsonObjectData = jsonObject.getJSONObject("data");
-            JSONObject coinInfo = jsonObjectData.getJSONObject("coinInfo");
-
-            String nickname = coinInfo.getString("nickname");
-            Log.e("name",nickname);
-            String rank = coinInfo.getString("rank");
-            list2.add(nickname);
-            list2.add(rank);
-            int coinCount = coinInfo.getInt("coinCount");
-            int level = coinInfo.getInt("level");
-            list3.add(coinCount);
-            list3.add(level);
 
             JSONObject shareArticles = jsonObjectData.getJSONObject("shareArticles");
             JSONArray jsonArray_Datas = shareArticles.getJSONArray("datas");
@@ -228,6 +240,27 @@ public class JsonAnalyze {
             e.printStackTrace();
         }
     }
+
+    public void JsonDataGet_shareUser_data(String jsonData,List<String> list1,List<Integer> list2) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONObject jsonObjectData = jsonObject.getJSONObject("data");
+            JSONObject coinInfo = jsonObjectData.getJSONObject("coinInfo");
+
+            String nickname = coinInfo.getString("nickname");
+            Log.e("name",nickname);
+            String rank = coinInfo.getString("rank");
+            list1.add(nickname);
+            list1.add(rank);
+            int coinCount = coinInfo.getInt("coinCount");
+            int level = coinInfo.getInt("level");
+            list2.add(coinCount);
+            list2.add(level);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public void JsonDataGet_my_coin(String jsonData, List<CoinData> list) {
         try {
@@ -265,6 +298,9 @@ public class JsonAnalyze {
             e.printStackTrace();
         }
     }
+
+
+
 
 
 }

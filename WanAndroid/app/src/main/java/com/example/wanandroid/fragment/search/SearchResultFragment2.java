@@ -1,5 +1,6 @@
 package com.example.wanandroid.fragment.search;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class SearchResultFragment2 extends Fragment {
     View view;
     POSTConnection postConnection = new POSTConnection();
@@ -35,7 +38,7 @@ public class SearchResultFragment2 extends Fragment {
     private String responseData = null;
     HashMap<String, String> map = new HashMap<>();
     TextView textView;
-    private String key;
+    private String key;private String cook;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -69,6 +72,8 @@ public class SearchResultFragment2 extends Fragment {
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
         textView = view.findViewById(R.id.search_key_2);
 
+        SharedPreferences save_da = getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
+        cook = save_da.getString("cookie", "");
         list.clear();
         map.clear();
         key = getArguments().getString("k");
@@ -76,7 +81,7 @@ public class SearchResultFragment2 extends Fragment {
         map.put("k",key);
 
         new Thread(() -> {
-            responseData = postConnection.sendGetNetRequest("https://www.wanandroid.com/article/query/0/json", map);
+            responseData = postConnection.sendGetNetRequest("https://www.wanandroid.com/article/query/0/json", map,cook);
             if (responseData.equals("1")) {
                 showResponse(2);
             } else {

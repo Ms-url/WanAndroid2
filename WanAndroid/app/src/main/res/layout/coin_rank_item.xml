@@ -21,8 +21,7 @@
 
     <TextView
         android:id="@+id/c_r_level"
-        android:textColor="@color/white"
-        android:background="@color/green"
+        android:textColor="@color/green"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -40,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_margin="12dp"
-            android:textColor="@color/yellow"
+            android:textColor="@color/yellow_2"
             android:textSize="16sp" />
     </LinearLayout>
 

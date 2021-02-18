@@ -25,7 +25,7 @@ public class POSTConnection {
         this.responseData = responseData;
     }
 
-    public String sendGetNetRequest(String murl, HashMap<String, String> params) {
+    public String sendGetNetRequest(String murl, HashMap<String, String> params,String cook) {
         POSTConnection post_connection = new POSTConnection();
         try {
             URL url = new URL(murl);
@@ -35,6 +35,8 @@ public class POSTConnection {
             connection.setReadTimeout(5000);
             connection.setDoOutput(true);
             connection.setDoInput(true);
+
+            connection.setRequestProperty("cookie",cook);
 
             StringBuilder dataTowrite = new StringBuilder();
             for(String key : params.keySet()){

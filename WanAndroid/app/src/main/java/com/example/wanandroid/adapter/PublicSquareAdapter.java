@@ -130,7 +130,9 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
         holder.textView_niceTime.setText(usefulData.getNiceDate());
         holder.textView_chapterName.setText(usefulData.getSuperChapterName());
         holder.textView_shareUser.setText(usefulData.getShareUser());
-
+        if (usefulData.getCollect()) {
+            holder.imageView_heard.setImageResource(R.drawable.heard);
+        }
     }
 
     @Override
