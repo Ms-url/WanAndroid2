@@ -39,7 +39,7 @@ public class WebRecyclerViewFragment extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(13,StaggeredGridLayoutManager.HORIZONTAL);
+                    StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(14,StaggeredGridLayoutManager.HORIZONTAL);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
                     progressBar.setVisibility(View.GONE);
@@ -61,7 +61,7 @@ public class WebRecyclerViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_recycler_view_2, container, false);
         recyclerView=view.findViewById(R.id.recycler_web);
-        recyclerView.addItemDecoration(new SpacesItemDecoration(14));
+        recyclerView.addItemDecoration(new SpacesItemDecoration(10));
         progressBar = view.findViewById(R.id.re_bar2);
 
         new Thread(() ->{

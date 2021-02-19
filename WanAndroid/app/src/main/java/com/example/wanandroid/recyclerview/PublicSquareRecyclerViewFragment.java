@@ -68,6 +68,7 @@ public class PublicSquareRecyclerViewFragment extends Fragment {
         recyclerView = view.findViewById(R.id.public_square_recycler_view);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
         progressBar = view.findViewById(R.id.re_web_bar);
+        list.clear();
 
         SharedPreferences save_da = getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");

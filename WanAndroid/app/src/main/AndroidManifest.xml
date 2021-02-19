@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroid">
-        <activity android:name=".activitise.function.CoinActivity"></activity>
+        <activity android:name=".activitise.function.AboutActivity"
+           android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".activitise.function.CoinActivity" />
         <activity android:name=".activitise.function.MyCollectActivity" />
         <activity android:name=".activitise.common.ShareUserActivity" />
         <activity
@@ -43,6 +45,7 @@
             android:name=".activitise.main.HomePageActivity"
             android:label="wanAndroid"
             android:launchMode="singleTask"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 

@@ -130,7 +130,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/retangle_backgound_red"
+        android:background="@drawable/retangle_bottom"
         android:gravity="right"
         android:text="@string/github_link"
         android:textColor="@color/teal_200"

@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
+import com.example.wanandroid.activitise.function.AboutActivity;
 import com.example.wanandroid.activitise.function.CoinActivity;
 import com.example.wanandroid.activitise.function.MyCollectActivity;
 
@@ -87,6 +88,13 @@ public class MyselfFragment extends Fragment {
             }
         });
 
+        textView_about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AboutActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }
