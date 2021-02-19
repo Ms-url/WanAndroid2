@@ -111,9 +111,9 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:background="@color/white"
-                android:id="@+id/collect_web"
+                android:id="@+id/re_collect_web"
                 android:layout_width="match_parent"
-                android:layout_height="48dp" />
+                android:layout_height="36dp" />
 
             <TextView
                 android:textSize="16sp"

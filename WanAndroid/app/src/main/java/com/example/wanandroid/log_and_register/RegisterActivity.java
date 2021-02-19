@@ -3,7 +3,6 @@ package com.example.wanandroid.log_and_register;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,6 +21,7 @@ import android.widget.Toast;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.tools.POSTConnection;
+import com.example.wanandroid.tools.POSTConnection_1;
 
 import org.json.JSONException;
 import org.json.JSONObject;

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import com.example.wanandroid.R;
 import com.example.wanandroid.adapter.CommonsAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.tools.JsonAnalyze;
-import com.example.wanandroid.tools.POSTConnection;
+import com.example.wanandroid.tools.POSTConnection_1;
 import com.example.wanandroid.tools.SpacesItemDecoration;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class SearchResultFragment2 extends Fragment {
     View view;
-    POSTConnection postConnection = new POSTConnection();
+    POSTConnection_1 postConnection = new POSTConnection_1();
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
     private CommonsAdapter dataAdapter = new CommonsAdapter(list);
@@ -38,7 +39,9 @@ public class SearchResultFragment2 extends Fragment {
     private String responseData = null;
     HashMap<String, String> map = new HashMap<>();
     TextView textView;
-    private String key;private String cook;
+    private String key;
+    private String cook;
+    private ProgressBar progressBar;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -48,6 +51,7 @@ public class SearchResultFragment2 extends Fragment {
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
                     textView.setText("搜索词：" + key);
+                    progressBar.setVisibility(View.GONE);
                     Log.e("key3", map.get("k"));
                     Log.e("UIchange", "search hot key");
                     break;
@@ -71,17 +75,18 @@ public class SearchResultFragment2 extends Fragment {
         recyclerView = view.findViewById(R.id.search_result_v_2);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
         textView = view.findViewById(R.id.search_key_2);
+        progressBar = view.findViewById(R.id.f_search_bar_2);
 
         SharedPreferences save_da = getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
         list.clear();
         map.clear();
         key = getArguments().getString("k");
-        Log.e("keypast",key);
-        map.put("k",key);
+        Log.e("keypast", key);
+        map.put("k", key);
 
         new Thread(() -> {
-            responseData = postConnection.sendGetNetRequest("https://www.wanandroid.com/article/query/0/json", map,cook);
+            responseData = postConnection.sendGetNetRequest("https://www.wanandroid.com/article/query/0/json", map, cook);
             if (responseData.equals("1")) {
                 showResponse(2);
             } else {

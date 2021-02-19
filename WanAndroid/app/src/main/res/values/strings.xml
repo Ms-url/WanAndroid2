@@ -17,7 +17,7 @@
     <string name="navigation_4">我的</string>
     <string name="square_1">广场</string>
     <string name="square_2">我的分享</string>
-    <string name="github_link">project link →</string>
+    <string name="github_link">project link →  </string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="collect">收藏</string>
     <string name="share">分享</string>
@@ -35,5 +35,6 @@
     <string name="way_of_log">—— 其他方式登录 ——</string>
     <string name="collect_web">收藏网站</string>
     <string name="collect_article">收藏文章</string>
+    <string name="cancel">取消</string>
 
 </resources>

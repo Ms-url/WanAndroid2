@@ -299,7 +299,20 @@ public class JsonAnalyze {
         }
     }
 
-
+    public void JsonDataGet_collect_web(String jsonData, List<WebData> list) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+            JSONArray jsonArray_Data = jsonObject.getJSONArray("data");
+            for (int i = 0; i < jsonData.length(); i++) {
+                JSONObject jsonObjectk = jsonArray_Data.getJSONObject(i);
+                String link = jsonObjectk.getString("link");
+                String name = jsonObjectk.getString("name");
+                list.add(new WebData(null,link,name));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 

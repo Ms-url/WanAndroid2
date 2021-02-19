@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Handler;
@@ -22,7 +21,7 @@ import android.widget.TextView;
 import com.example.wanandroid.R;
 import com.example.wanandroid.activitise.function.SearchActivity;
 import com.example.wanandroid.recyclerview.RecyclerViewFragment;
-import com.example.wanandroid.recyclerview.RecyclerViewFragmentWeb;
+import com.example.wanandroid.recyclerview.WebRecyclerViewFragment;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -83,10 +82,12 @@ public class HomePageFragment extends Fragment {
                         imageView_dot1.setImageResource(R.drawable.dot_big_bl);
                         imageView_dot2.setImageResource(R.drawable.dot_big);
                         imageView_dot3.setImageResource(R.drawable.dot_big);
+                        break;
                     case 1:
                         imageView_dot1.setImageResource(R.drawable.dot_big);
                         imageView_dot2.setImageResource(R.drawable.dot_big_bl);
                         imageView_dot3.setImageResource(R.drawable.dot_big);
+                        break;
                     case 2:
                         imageView_dot1.setImageResource(R.drawable.dot_big);
                         imageView_dot2.setImageResource(R.drawable.dot_big);
@@ -106,7 +107,7 @@ public class HomePageFragment extends Fragment {
         fragmentTitle.add("精选文章");
         fragmentTitle.add("常用网站");
         fragmentList.add(new RecyclerViewFragment());
-        fragmentList.add(new RecyclerViewFragmentWeb());
+        fragmentList.add(new WebRecyclerViewFragment());
 
         text.setOnClickListener(new View.OnClickListener() {
             @Override

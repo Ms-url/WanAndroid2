@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.os.Handler;
 import android.os.Message;
@@ -20,16 +21,16 @@ import com.example.wanandroid.tools.JsonAnalyze;
 import com.example.wanandroid.R;
 import com.example.wanandroid.tools.SpacesItemDecoration;
 import com.example.wanandroid.dataClass.WebData;
-import com.example.wanandroid.adapter.RecyclerViewAdapterWeb;
+import com.example.wanandroid.adapter.WebRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RecyclerViewFragmentWeb extends Fragment {
+public class WebRecyclerViewFragment extends Fragment {
     private View view;
     private RecyclerView recyclerView;
     private List<WebData> list=new ArrayList<>();
-    private RecyclerViewAdapterWeb dataAdapter=new RecyclerViewAdapterWeb(list);
+    private WebRecyclerViewAdapter dataAdapter=new WebRecyclerViewAdapter(list);
     GETConnection get_connection=new GETConnection();
     private String responseData;
     private ProgressBar progressBar;
@@ -38,7 +39,7 @@ public class RecyclerViewFragmentWeb extends Fragment {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+                    StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(13,StaggeredGridLayoutManager.HORIZONTAL);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
                     progressBar.setVisibility(View.GONE);

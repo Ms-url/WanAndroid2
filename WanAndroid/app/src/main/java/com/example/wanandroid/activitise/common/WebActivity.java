@@ -16,7 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.tools.POSTConnection;
+import com.example.wanandroid.tools.POSTConnection_1;
 import com.example.wanandroid.tools.POSTConnection_2;
 
 import java.util.HashMap;
@@ -26,16 +26,15 @@ public class WebActivity extends AppCompatActivity {
     private int id;
     private String cid;
     private String title;
-    private String u;
+    private String cook;
     private String re;
     POSTConnection_2 post_connection_2 = new POSTConnection_2();
-    POSTConnection post_connection = new POSTConnection();
+    POSTConnection_1 post_connection = new POSTConnection_1();
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    Toast.makeText(WebActivity.this, u, Toast.LENGTH_SHORT).show();
                     Toast.makeText(WebActivity.this, re, Toast.LENGTH_SHORT).show();
                     break;
 
@@ -54,7 +53,7 @@ public class WebActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.add_collect:
                 new Thread(() -> {
-                    re = post_connection_2.sendGetNetRequest("https://www.wanandroid.com/lg/collect/" + cid + "/json", u);
+                    re = post_connection_2.sendGetNetRequest("https://www.wanandroid.com/lg/collect/" + cid + "/json", cook);
                     Log.e("re", re);
                     showResponse(1);
                 }).start();
@@ -64,7 +63,7 @@ public class WebActivity extends AppCompatActivity {
                     HashMap<String, String> map = new HashMap<>();
                     map.put("title", title);
                     map.put("link", link);
-                    String re = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/user_article/add/json", map);
+                    String re = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/user_article/add/json", map,cook);
                     Log.e("re", re);
                 }).start();
 
@@ -79,8 +78,8 @@ public class WebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web_activity);
 
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
-        u = save_da.getString("cookie", "");
-        Log.e("cookie",u);
+        cook = save_da.getString("cookie", "");
+        Log.e("cookie",cook);
 
         Intent intent = getIntent();
         link = intent.getStringExtra("links");

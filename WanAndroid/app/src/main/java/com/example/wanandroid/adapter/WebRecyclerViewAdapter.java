@@ -17,29 +17,27 @@ import com.example.wanandroid.activitise.common.WebActivity;
 
 import java.util.List;
 
-public class RecyclerViewAdapterWeb extends RecyclerView.Adapter<RecyclerViewAdapterWeb.ViewHolder> {
+public class WebRecyclerViewAdapter extends RecyclerView.Adapter<WebRecyclerViewAdapter.ViewHolder> {
     private List<WebData> mdata;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView_name;
-        TextView textView_category;
         LinearLayout linearLayout;
 
         public ViewHolder(View view) {
             super(view);
-            textView_category = view.findViewById(R.id.web_item_category);
             textView_name = view.findViewById(R.id.web_item_name);
             linearLayout = view.findViewById(R.id.web_item_whole);
         }
     }
 
-    public RecyclerViewAdapterWeb(List<WebData> mdata) {
+    public WebRecyclerViewAdapter(List<WebData> mdata) {
         this.mdata = mdata;
     }
 
     @NonNull
     @Override
-    public RecyclerViewAdapterWeb.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public WebRecyclerViewAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_web_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
@@ -60,10 +58,10 @@ public class RecyclerViewAdapterWeb extends RecyclerView.Adapter<RecyclerViewAda
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerViewAdapterWeb.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull WebRecyclerViewAdapter.ViewHolder holder, int position) {
         WebData webData=mdata.get(position);
         holder.textView_name.setText(webData.getName());
-        holder.textView_category.setText(webData.getCategory());
+
     }
 
     @Override

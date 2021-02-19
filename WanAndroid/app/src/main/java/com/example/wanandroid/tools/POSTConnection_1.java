@@ -13,7 +13,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.util.HashMap;
 
-public class POSTConnection {
+public class POSTConnection_1 {
 
     private String responseData;
 
@@ -25,8 +25,8 @@ public class POSTConnection {
         this.responseData = responseData;
     }
 
-    public String sendGetNetRequest(String murl, HashMap<String, String> params) {
-        POSTConnection post_connection = new POSTConnection();
+    public String sendGetNetRequest(String murl, HashMap<String, String> params,String cook) {
+        POSTConnection_1 post_connection = new POSTConnection_1();
         try {
             URL url = new URL(murl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -35,6 +35,8 @@ public class POSTConnection {
             connection.setReadTimeout(5000);
             connection.setDoOutput(true);
             connection.setDoInput(true);
+
+            connection.setRequestProperty("cookie",cook);
 
             StringBuilder dataTowrite = new StringBuilder();
             for(String key : params.keySet()){

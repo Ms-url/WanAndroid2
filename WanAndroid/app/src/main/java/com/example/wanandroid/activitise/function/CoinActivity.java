@@ -6,8 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.SharedPreferences;
@@ -16,16 +14,12 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.fragment.coin.CoinRankFragment;
 import com.example.wanandroid.fragment.coin.MyCoinGetFragment;
-import com.example.wanandroid.recyclerview.RecyclerViewFragmentWeb;
 import com.example.wanandroid.tools.GETConnection;
 import com.example.wanandroid.tools.JsonAnalyze;
 import com.google.android.material.tabs.TabLayout;
