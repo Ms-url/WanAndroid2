@@ -345,6 +345,7 @@ public class JsonAnalyze {
              data = jsonObject.getString("data");
              errorMsg = jsonObject.getString("errorMsg");
              errorCode = jsonObject.getInt("errorCode");
+             Log.e("errorCode", String.valueOf(errorCode));
 
         } catch (JSONException e) {
             e.printStackTrace();

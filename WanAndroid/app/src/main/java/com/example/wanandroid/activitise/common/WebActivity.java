@@ -81,9 +81,9 @@ public class WebActivity extends AppCompatActivity {
                     re = post_connection_2.sendGetNetRequest("https://www.wanandroid.com/lg/collect/" + cid + "/json", cook);
                     jsonAnalyze.JsonDataGet_share_web(re, data1, errorMsg1, errorCode1);
                     if (errorCode1 == 0) {
-                        showResponse(3);
-                    } else {
                         showResponse(1);
+                    } else {
+                        showResponse(3);
                     }
                     Log.e("re", re);
                 }).start();
@@ -96,9 +96,9 @@ public class WebActivity extends AppCompatActivity {
                     re2 = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/user_article/add/json", map, cook);
                     jsonAnalyze.JsonDataGet_share_web(re2, data1, errorMsg2, errorCode2);
                     if (errorCode2 == 0) {
-                        showResponse(4);
-                    } else {
                         showResponse(2);
+                    } else {
+                        showResponse(4);
                     }
                     Log.e("re2", re2);
                 }).start();
@@ -111,9 +111,9 @@ public class WebActivity extends AppCompatActivity {
                     re3 = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/collect/addtool/json", map, cook);
                     jsonAnalyze.JsonDataGet_share_web(re3, data3, errorMsg3, errorCode3);
                     if (errorCode3 == 0) {
-                        showResponse(3);
-                    } else {
                         showResponse(5);
+                    } else {
+                        showResponse(3);
                     }
                     Log.e("re3", re3);
                 }).start();
