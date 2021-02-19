@@ -84,6 +84,8 @@ public class MyShareFragment extends Fragment {
 
         SharedPreferences save_da = this.getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
+
+        list.clear();
         if (TextUtils.isEmpty(cook)) {
             textView_logIn.setVisibility(View.VISIBLE);
             showResponse(3);
@@ -93,7 +95,7 @@ public class MyShareFragment extends Fragment {
                 if (responseData.equals("1")) {
                     showResponse(2);
                 } else {
-                    jsonAnalyze.JsonDataGet_article(responseData, list);
+                    jsonAnalyze.JsonDataGet_shareUser_list(responseData, list);
                     showResponse(1);
                 }
             }).start();

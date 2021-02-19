@@ -314,6 +314,16 @@ public class JsonAnalyze {
         }
     }
 
+    public void JsonDataGet_share_web(String jsonData, String data ,String errorMsg, int errorCode) {
+        try {
+            JSONObject jsonObject = new JSONObject(jsonData);
+             data = jsonObject.getString("data");
+             errorMsg = jsonObject.getString("errorMsg");
+             errorCode = jsonObject.getInt("errorCode");
 
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

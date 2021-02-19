@@ -16,6 +16,7 @@ import android.webkit.WebViewClient;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
+import com.example.wanandroid.tools.JsonAnalyze;
 import com.example.wanandroid.tools.POSTConnection_1;
 import com.example.wanandroid.tools.POSTConnection_2;
 
@@ -27,7 +28,15 @@ public class WebActivity extends AppCompatActivity {
     private String cid;
     private String title;
     private String cook;
+    private String data1;
+    private String errorMsg1;
+    private int errorCode1;
+    private String data2;
+    private String errorMsg2;
+    private int errorCode2;
     private String re;
+    private String re2;
+    JsonAnalyze jsonAnalyze = new JsonAnalyze();
     POSTConnection_2 post_connection_2 = new POSTConnection_2();
     POSTConnection_1 post_connection = new POSTConnection_1();
 
@@ -35,8 +44,16 @@ public class WebActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
-                    Toast.makeText(WebActivity.this, re, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(WebActivity.this, errorMsg1, Toast.LENGTH_SHORT).show();
                     break;
+                case 2:
+                    Toast.makeText(WebActivity.this, errorMsg2, Toast.LENGTH_SHORT).show();
+                    break;
+                case 3:
+                    Toast.makeText(WebActivity.this, "收藏成功", Toast.LENGTH_SHORT).show();
+                    break;
+                case 4:
+                    Toast.makeText(WebActivity.this, "分享成功", Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -54,8 +71,13 @@ public class WebActivity extends AppCompatActivity {
             case R.id.add_collect:
                 new Thread(() -> {
                     re = post_connection_2.sendGetNetRequest("https://www.wanandroid.com/lg/collect/" + cid + "/json", cook);
+                    jsonAnalyze.JsonDataGet_share_web(re, data1, errorMsg1, errorCode1);
+                    if (errorCode1 == 0) {
+                        showResponse(3);
+                    } else {
+                        showResponse(1);
+                    }
                     Log.e("re", re);
-                    showResponse(1);
                 }).start();
                 break;
             case R.id.add_share:
@@ -63,8 +85,14 @@ public class WebActivity extends AppCompatActivity {
                     HashMap<String, String> map = new HashMap<>();
                     map.put("title", title);
                     map.put("link", link);
-                    String re = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/user_article/add/json", map,cook);
-                    Log.e("re", re);
+                    re2 = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/user_article/add/json", map, cook);
+                    jsonAnalyze.JsonDataGet_share_web(re2, data1, errorMsg2, errorCode2);
+                    if (errorCode2 == 0) {
+                        showResponse(4);
+                    } else {
+                        showResponse(2);
+                    }
+                    Log.e("re", re2);
                 }).start();
 
         }
@@ -79,7 +107,7 @@ public class WebActivity extends AppCompatActivity {
 
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
-        Log.e("cookie",cook);
+        Log.e("cookie", cook);
 
         Intent intent = getIntent();
         link = intent.getStringExtra("links");
