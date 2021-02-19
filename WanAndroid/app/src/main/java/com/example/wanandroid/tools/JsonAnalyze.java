@@ -2,6 +2,7 @@ package com.example.wanandroid.tools;
 
 import android.util.Log;
 
+import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.CoinData;
 import com.example.wanandroid.dataClass.CollectData;
 import com.example.wanandroid.dataClass.TreeData;
@@ -56,11 +57,11 @@ public class JsonAnalyze {
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
                 Boolean collec = jsonObjectk.getBoolean("collect");
-                String collect ;
+                int collect ;
                 if (collec){
-                    collect = "R.drawable.heard";
+                    collect = R.drawable.heard;
                 }else {
-                    collect = "R.drawable.like";
+                    collect = R.drawable.like;
                 }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, null, true, userId,fresh,collect));
             }
@@ -89,11 +90,11 @@ public class JsonAnalyze {
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
                 Boolean collec = jsonObjectk.getBoolean("collect");
-                String collect ;
+                int collect ;
                 if (collec){
-                    collect = "R.drawable.heard";
+                    collect = R.drawable.heard;
                 }else {
-                    collect = "R.drawable.like";
+                    collect = R.drawable.like;
                 }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, "置顶   ", null, true, userId,fresh,collect));
             }
@@ -198,11 +199,11 @@ public class JsonAnalyze {
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
                 Boolean collec = jsonObjectk.getBoolean("collect");
-                String collect ;
+                int collect ;
                 if (collec){
-                    collect = "R.drawable.heard";
+                    collect = R.drawable.heard;
                 }else {
-                    collect = "R.drawable.like";
+                    collect = R.drawable.like;
                 }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true, userId,fresh,collect));
             }
@@ -252,11 +253,11 @@ public class JsonAnalyze {
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
                 Boolean collec = jsonObjectk.getBoolean("collect");
-                String collect ;
+                int collect ;
                 if (collec){
-                    collect = "R.drawable.heard";
+                    collect = R.drawable.heard;
                 }else {
-                    collect = "R.drawable.like";
+                    collect = R.drawable.like;
                 }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true, userId,fresh,collect));
             }

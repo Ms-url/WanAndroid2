@@ -47,10 +47,13 @@ public class WebRecyclerViewAdapter extends RecyclerView.Adapter<WebRecyclerView
                 int position = holder.getAdapterPosition();
                 WebData webData = mdata.get(position);
                 String link = webData.getLink();
+                String name = webData.getName();
                 Log.e("mesge_link",link);
+                Log.e("mesge_name",name);
 
                 Intent intent=new Intent(view.getContext(), WebActivity.class);
                 intent.putExtra("links",link);
+                intent.putExtra("title",name);
                 view.getContext().startActivity(intent);
             }
         });
@@ -61,6 +64,7 @@ public class WebRecyclerViewAdapter extends RecyclerView.Adapter<WebRecyclerView
     public void onBindViewHolder(@NonNull WebRecyclerViewAdapter.ViewHolder holder, int position) {
         WebData webData=mdata.get(position);
         holder.textView_name.setText(webData.getName());
+
 
     }
 

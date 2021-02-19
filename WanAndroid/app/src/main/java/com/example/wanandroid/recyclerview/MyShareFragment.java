@@ -45,6 +45,7 @@ public class MyShareFragment extends Fragment {
     private String responseData;
     private ProgressBar progressBar;
     private TextView textView_logIn;
+    private TextView textView_nan;
     String cook;
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -54,6 +55,9 @@ public class MyShareFragment extends Fragment {
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(dataAdapter);
                     progressBar.setVisibility(View.GONE);
+                    if (list.size()==0){
+                        textView_nan.setVisibility(View.VISIBLE);
+                    }
                     Log.e("UIchange", "ui");
                     break;
                 case 2:
@@ -80,6 +84,7 @@ public class MyShareFragment extends Fragment {
         recyclerView = view.findViewById(R.id.my_share_re_v);
         recyclerView.addItemDecoration(new SpacesItemDecoration(14));
         textView_logIn = view.findViewById(R.id.s_log_in_text);
+        textView_nan = view.findViewById(R.id.nan_article);
         progressBar = view.findViewById(R.id.re_my_bar);
 
         SharedPreferences save_da = this.getActivity().getSharedPreferences("cook_data", MODE_PRIVATE);

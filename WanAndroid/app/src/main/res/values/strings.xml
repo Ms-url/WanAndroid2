@@ -36,6 +36,7 @@
     <string name="collect_web">收藏网站</string>
     <string name="collect_article">收藏文章</string>
     <string name="cancel">取消</string>
+    <string name="nan_article">你还没有分享过文章哦,快来和小伙伴们一起分享吧</string>
 
 
 </resources>

@@ -4,25 +4,36 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".recyclerview.MyShareFragment">
+
     <TextView
-        android:textSize="18sp"
-        android:visibility="gone"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:id="@+id/s_log_in_text"
-        android:text="@string/log_in_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/blue"/>
-    <ProgressBar
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:id="@+id/re_my_bar"/>
+        android:gravity="center"
+        android:text="@string/log_in_text"
+        android:textColor="@color/blue"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+    <ProgressBar
+        android:id="@+id/re_my_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
         android:id="@+id/my_share_re_v"
-        android:layout_height="match_parent"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/nan_article"
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/nan_article"
+        android:textSize="20sp" />
 </FrameLayout>

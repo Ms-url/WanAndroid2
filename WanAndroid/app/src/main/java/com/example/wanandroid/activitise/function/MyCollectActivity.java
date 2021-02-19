@@ -105,6 +105,8 @@ public class MyCollectActivity extends AppCompatActivity {
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
 
+        list_collect_article.clear();
+        list_collect_web.clear();
         if (userId.equals("0")) {
             textView_name.setText("未登录");
             progressBar.setVisibility(View.GONE);

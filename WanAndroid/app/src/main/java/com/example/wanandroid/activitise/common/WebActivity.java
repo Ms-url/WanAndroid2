@@ -34,8 +34,12 @@ public class WebActivity extends AppCompatActivity {
     private String data2;
     private String errorMsg2;
     private int errorCode2;
+    private String data3;
+    private String errorMsg3;
+    private int errorCode3;
     private String re;
     private String re2;
+    private String re3;
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     POSTConnection_2 post_connection_2 = new POSTConnection_2();
     POSTConnection_1 post_connection = new POSTConnection_1();
@@ -54,6 +58,10 @@ public class WebActivity extends AppCompatActivity {
                     break;
                 case 4:
                     Toast.makeText(WebActivity.this, "分享成功", Toast.LENGTH_SHORT).show();
+                    break;
+                case 5:
+                    Toast.makeText(WebActivity.this, errorMsg3, Toast.LENGTH_SHORT).show();
+
 
             }
         }
@@ -92,9 +100,23 @@ public class WebActivity extends AppCompatActivity {
                     } else {
                         showResponse(2);
                     }
-                    Log.e("re", re2);
+                    Log.e("re2", re2);
                 }).start();
-
+                break;
+            case R.id.web_collect:
+                new Thread(() -> {
+                    HashMap<String, String> map = new HashMap<>();
+                    map.put("name", title);
+                    map.put("link", link);
+                    re3 = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/collect/addtool/json", map, cook);
+                    jsonAnalyze.JsonDataGet_share_web(re3, data3, errorMsg3, errorCode3);
+                    if (errorCode3 == 0) {
+                        showResponse(3);
+                    } else {
+                        showResponse(5);
+                    }
+                    Log.e("re3", re3);
+                }).start();
         }
         return true;
     }

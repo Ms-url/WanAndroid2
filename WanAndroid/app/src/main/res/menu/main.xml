@@ -11,4 +11,8 @@
         android:icon="@drawable/share3"
         app:showAsAction="ifRoom"
         android:title="@string/share" />
+    <item
+        android:id="@+id/web_collect"
+        android:title="@string/collect_web"
+        />
 </menu>
