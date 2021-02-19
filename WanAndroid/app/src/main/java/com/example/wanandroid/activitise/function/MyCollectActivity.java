@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.adapter.CollectArticleAdapter;
+import com.example.wanandroid.adapter.CollectWebRecyclerViewAdapter;
 import com.example.wanandroid.adapter.WebRecyclerViewAdapter;
 import com.example.wanandroid.dataClass.CollectData;
 import com.example.wanandroid.dataClass.WebData;
@@ -38,7 +39,7 @@ public class MyCollectActivity extends AppCompatActivity {
     private List<String> list_user_data1 = new ArrayList<>();
     private List<Integer> list_user_data2 = new ArrayList<>();
     private CollectArticleAdapter dataAdapter = new CollectArticleAdapter(list_collect_article);
-    private WebRecyclerViewAdapter webRecyclerViewAdapter = new WebRecyclerViewAdapter(list_collect_web);
+    private CollectWebRecyclerViewAdapter webRecyclerViewAdapter = new CollectWebRecyclerViewAdapter(list_collect_web);
     GETConnection_2 get_connection = new GETConnection_2();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData1;
@@ -100,11 +101,11 @@ public class MyCollectActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.re_my_collect_bar);
 
         SharedPreferences user_da = getSharedPreferences("user_data", MODE_PRIVATE);
-        userId = String.valueOf(user_da.getInt("user_id", 2));
+        userId = String.valueOf(user_da.getInt("user_id", 0));
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
         cook = save_da.getString("cookie", "");
 
-        if (TextUtils.isEmpty(userId)) {
+        if (userId.equals("0")) {
             textView_name.setText("未登录");
             progressBar.setVisibility(View.GONE);
             textView_login.setVisibility(View.VISIBLE);

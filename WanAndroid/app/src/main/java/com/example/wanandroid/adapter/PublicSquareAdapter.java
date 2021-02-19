@@ -1,5 +1,6 @@
 package com.example.wanandroid.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.activitise.common.ShareUserActivity;
@@ -21,6 +23,7 @@ import java.util.List;
 
 public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapter.ViewHolder> {
     private List<UsefulData> mdata;
+    private Context mcontext;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView_title;
@@ -51,6 +54,9 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
     public PublicSquareAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_square_item, parent, false);
         final PublicSquareAdapter.ViewHolder holder = new PublicSquareAdapter.ViewHolder(view);
+        if (mcontext == null) {
+            mcontext = parent.getContext();
+        }
 
         holder.textView_title.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -108,16 +114,7 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
                 int position = holder.getAdapterPosition();
                 UsefulData usefulData = mdata.get(position);
 
-                if (usefulData.getCollect()) {
 
-                    holder.imageView_heard.setImageResource(R.drawable.heard);
-
-                } else {
-
-                    holder.imageView_heard.setImageResource(R.drawable.like);
-
-
-                }
             }
         });
         return holder;
@@ -130,9 +127,7 @@ public class PublicSquareAdapter extends RecyclerView.Adapter<PublicSquareAdapte
         holder.textView_niceTime.setText(usefulData.getNiceDate());
         holder.textView_chapterName.setText(usefulData.getSuperChapterName());
         holder.textView_shareUser.setText(usefulData.getShareUser());
-        if (usefulData.getCollect()) {
-            holder.imageView_heard.setImageResource(R.drawable.heard);
-        }
+        Glide.with(mcontext).load(usefulData.getCollect()).into(holder.imageView_heard);
     }
 
     @Override

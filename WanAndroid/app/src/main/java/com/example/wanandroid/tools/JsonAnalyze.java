@@ -55,7 +55,13 @@ public class JsonAnalyze {
                 int id = jsonObjectk.getInt("id");
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
-                Boolean collect = jsonObjectk.getBoolean("collect");
+                Boolean collec = jsonObjectk.getBoolean("collect");
+                String collect ;
+                if (collec){
+                    collect = "R.drawable.heard";
+                }else {
+                    collect = "R.drawable.like";
+                }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, null, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
@@ -82,7 +88,13 @@ public class JsonAnalyze {
                 int id = jsonObjectk.getInt("id");
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
-                Boolean collect = jsonObjectk.getBoolean("collect");
+                Boolean collec = jsonObjectk.getBoolean("collect");
+                String collect ;
+                if (collec){
+                    collect = "R.drawable.heard";
+                }else {
+                    collect = "R.drawable.like";
+                }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, "置顶   ", null, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
@@ -185,7 +197,13 @@ public class JsonAnalyze {
                 int id = jsonObjectk.getInt("id");
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
-                Boolean collect = jsonObjectk.getBoolean("collect");
+                Boolean collec = jsonObjectk.getBoolean("collect");
+                String collect ;
+                if (collec){
+                    collect = "R.drawable.heard";
+                }else {
+                    collect = "R.drawable.like";
+                }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true, userId,fresh,collect));
             }
         } catch (JSONException e) {
@@ -233,7 +251,13 @@ public class JsonAnalyze {
                 int id = jsonObjectk.getInt("id");
                 int userId = jsonObjectk.getInt("userId");
                 Boolean fresh = jsonObjectk.getBoolean("fresh");
-                Boolean collect = jsonObjectk.getBoolean("collect");
+                Boolean collec = jsonObjectk.getBoolean("collect");
+                String collect ;
+                if (collec){
+                    collect = "R.drawable.heard";
+                }else {
+                    collect = "R.drawable.like";
+                }
                 list.add(new UsefulData(title, niceDate, link, shareUser, desc, author, chapterName, superChapterName, projectLink, id, null, envelopePic, true, userId,fresh,collect));
             }
         } catch (JSONException e) {

@@ -77,9 +77,9 @@ public class CoinActivity extends AppCompatActivity {
         textView_rank = findViewById(R.id.co_rank);
 
         SharedPreferences user_da = getSharedPreferences("user_data", MODE_PRIVATE);
-        userId = String.valueOf(user_da.getInt("user_id", 2));
+        userId = String.valueOf(user_da.getInt("user_id", 0));
 
-        if (TextUtils.isEmpty(userId)) {
+        if (userId.equals("0")) {
             textView_name.setText("未登录");
             showResponse(3);
         } else {

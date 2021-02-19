@@ -31,6 +31,7 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
         TextView textView_shareUser;
         TextView textView_niceTime;
         ImageView imageView;
+        ImageView imageView_like;
 
         public ViewHolder(View view) {
             super(view);
@@ -42,6 +43,7 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
             textView_github_link = view.findViewById(R.id.p_github_link);
             textView_shareUser=view.findViewById(R.id.p_shareUser);
             textView_niceTime= view.findViewById(R.id.p_niceTime);
+            imageView_like = view.findViewById(R.id.pr_like);
         }
     }
 
@@ -133,6 +135,7 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
         holder.textView_desc.setText(usefulData.getDesc());
         holder.textView_chapterName.setText(usefulData.getChapterName());
         Glide.with(mcontext).load(usefulData.getEnvelopePic()).into(holder.imageView);
+        Glide.with(mcontext).load(usefulData.getCollect()).into(holder.imageView_like);
 
     }
 

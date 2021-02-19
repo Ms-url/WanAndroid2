@@ -3,6 +3,7 @@ package com.example.wanandroid.log_and_register;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -49,7 +50,6 @@ public class LogInActivity extends AppCompatActivity {
     private POSTConnection_3 post_connection = new POSTConnection_3();
     private String responseData;
     private static int i = 2;
-    private static Context context;
 
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
@@ -57,15 +57,12 @@ public class LogInActivity extends AppCompatActivity {
                 case 1:
                     String m = (String) msg.obj;
                     Toast.makeText(LogInActivity.this, m, Toast.LENGTH_SHORT).show();
-                    Log.e("UIchange", "ui");
+                    Log.e("错误信息",m);
                     break;
                 case 2:
                     String n = (String) msg.obj;
                     Toast.makeText(LogInActivity.this, n, Toast.LENGTH_SHORT).show();
-                    break;
-                case 3:
-                    String k = (String) msg.obj;
-                    Toast.makeText(LogInActivity.this, k, Toast.LENGTH_SHORT).show();
+                    Log.e("请求超时","请求超时");
                     break;
 
             }
@@ -86,6 +83,7 @@ public class LogInActivity extends AppCompatActivity {
         textView = findViewById(R.id.tv_log_in);
         textView_visitor_log = findViewById(R.id.visitor_log_in);
         textView_way_of_log = findViewById(R.id.way_of_log);
+
         SharedPreferences.Editor save_data = getSharedPreferences("user_data", MODE_PRIVATE).edit();
         SharedPreferences.Editor cookie_data = getSharedPreferences("cook_data", MODE_PRIVATE).edit();
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
@@ -107,6 +105,7 @@ public class LogInActivity extends AppCompatActivity {
                 cookie_data.apply();
                 save_data.apply();
                 startActivity(intent);
+                //测试专用通道
             }
         });
 
@@ -154,28 +153,41 @@ public class LogInActivity extends AppCompatActivity {
                     map.put("username", username);
                     map.put("password", password);
                     Log.e("分支", "进入");
+
+                    ProgressDialog progressDialog = new ProgressDialog(LogInActivity.this);
+                    progressDialog.setTitle("正在登录...");
+                    progressDialog.setMessage("Loading...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+
                     new Thread(() -> {
-                        Log.e("新线程", "开启");
+                        try {
+                            Thread.sleep(1200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         List<String> list = new ArrayList<>();
                         list = post_connection.sendGetNetRequest("https://www.wanandroid.com/user/login", map);
                         responseData = list.get(0);
                         Log.e("联接response", responseData);
                         try {
                             if (responseData.equals("1")) {
+                                progressDialog.dismiss();
                                 showResponse("请求超时", 2);
                             } else {
                                 String cook = list.get(1);
                                 cookie_data.putString("cookie", cook);
                                 cookie_data.apply();
-                                showResponse(cook, 3);
                                 JSONObject jsonObject = new JSONObject(responseData);
                                 int jsonerrorCode = jsonObject.getInt("errorCode");
 
                                 if (jsonerrorCode == -1) {
+                                    progressDialog.dismiss();
                                     String jsonerrorMsg = jsonObject.getString("errorMsg");
                                     showResponse(jsonerrorMsg, 1);
                                     Log.e("错误", "信息");
                                 } else {
+                                    progressDialog.dismiss();
                                     JSONObject jsonRightData = jsonObject.getJSONObject("data");
                                     String jsonUsername = jsonRightData.getString("username");
                                     int user_id = jsonRightData.getInt("id");

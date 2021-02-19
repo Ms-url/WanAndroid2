@@ -25,9 +25,9 @@ public class UsefulData {
     private String envelopePic;
     private Boolean aBoolean;
     private Boolean fresh;
-    private Boolean collect;
+    private String collect;
 
-    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic,Boolean aBoolean,int userId,Boolean fresh,Boolean collect) {
+    public UsefulData(String title, String niceDate, String link, String shareUser, String desc, String author, String chapterName, String superChapterName, String projectLink, int id, String top,String envelopePic,Boolean aBoolean,int userId,Boolean fresh,String collect) {
         this.title = title;
         this.niceDate = niceDate;
         this.link = link;
@@ -54,11 +54,11 @@ public class UsefulData {
         this.fresh = fresh;
     }
 
-    public Boolean getCollect() {
+    public String getCollect() {
         return collect;
     }
 
-    public void setCollect(Boolean collect) {
+    public void setCollect(String collect) {
         this.collect = collect;
     }
 

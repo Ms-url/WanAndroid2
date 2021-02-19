@@ -7,7 +7,7 @@
     <string name="repassword_hint">确认密码</string>
     <string name="log_in_page_title">LOG IN</string>
     <string name="register_page_title">Register</string>
-    <string name="log_in_page_title2">wanAndroid</string>
+    <string name="register_page_title2">wanAndroid</string>
     <string name="dot">/</string>
     <string name="体系">体系</string>
     <string name="项目">项目</string>
@@ -36,5 +36,6 @@
     <string name="collect_web">收藏网站</string>
     <string name="collect_article">收藏文章</string>
     <string name="cancel">取消</string>
+
 
 </resources>

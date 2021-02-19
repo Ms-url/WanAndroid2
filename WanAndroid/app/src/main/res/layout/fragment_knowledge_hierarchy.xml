@@ -20,7 +20,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginBottom="6dp"
-            android:background="@drawable/select_circle"
+            android:background="@drawable/circle_select"
             android:orientation="horizontal">
 
             <TextView

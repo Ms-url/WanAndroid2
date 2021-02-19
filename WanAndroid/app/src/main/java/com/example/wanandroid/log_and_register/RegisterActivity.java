@@ -3,6 +3,7 @@ package com.example.wanandroid.log_and_register;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -44,17 +45,18 @@ public class RegisterActivity extends AppCompatActivity {
     private static int i = 2;
     private static int ii = 2;
 
+
     private Handler handler = new Handler() {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case 1:
                     String m = (String) msg.obj;
                     Toast.makeText(RegisterActivity.this, m, Toast.LENGTH_SHORT).show();
-                    Log.e("UIchange", "ui");
+                    Log.e("错误信息",m);
                     break;
                 case 2:
-                    finish();
                     Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+                    finish();
                     break;
                 case 3:
                     Toast.makeText(RegisterActivity.this, "请求超时", Toast.LENGTH_SHORT).show();
@@ -163,6 +165,7 @@ public class RegisterActivity extends AppCompatActivity {
                 int mlongth_u = editText_account.length();
                 Log.e("点击", "进入");
 
+
                 if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password) || TextUtils.isEmpty(repassword)) {
                     Toast.makeText(RegisterActivity.this, "账号和密码不能为空", Toast.LENGTH_SHORT).show();
                 } else if (mlongth < 6) {
@@ -175,23 +178,36 @@ public class RegisterActivity extends AppCompatActivity {
                     map.put("password", password);
                     map.put("repassword", repassword);
                     Log.e("分支", "进入");
-                    new Thread(() -> {
-                        Log.e("新线程", "开启");
 
+                    ProgressDialog progressDialog = new ProgressDialog(RegisterActivity.this);
+                    progressDialog.setTitle("正在注册...");
+                    progressDialog.setMessage("Loading...");
+                    progressDialog.setCancelable(false);
+                    progressDialog.show();
+
+                    new Thread(() -> {
+                        try {
+                            Thread.sleep(1200);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                         responseData = post_connection.sendGetNetRequest("https://www.wanandroid.com/user/register", map);
                         Log.e("返回值", responseData);
                         try {
                             if (responseData.equals("1")) {
+                                progressDialog.dismiss();
                                 showResponse(null, 3);
                             } else {
                                 JSONObject jsonObject = new JSONObject(responseData);
                                 int jsonerrorCode = jsonObject.getInt("errorCode");
 
                                 if (jsonerrorCode == -1) {
+                                    progressDialog.dismiss();
                                     String jsonerrorMsg = jsonObject.getString("errorMsg");
                                     showResponse(jsonerrorMsg, 1);
                                     Log.e("错误", "信息");
                                 } else {
+                                    progressDialog.dismiss();
                                     Log.e("注册", "成功");
                                     showResponse(null, 2);
                                 }

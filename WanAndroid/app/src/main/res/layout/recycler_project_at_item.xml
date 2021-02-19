@@ -47,6 +47,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/pr_like"
                         android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_marginTop="2dp"
@@ -129,7 +130,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:background="@drawable/bottom_retangle"
+        android:background="@drawable/retangle_backgound_red"
         android:gravity="right"
         android:text="@string/github_link"
         android:textColor="@color/teal_200"
