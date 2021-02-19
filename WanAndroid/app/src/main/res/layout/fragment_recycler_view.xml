@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecyclerViewFragment">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="56dp"
-        android:text="1111"/>
+    android:background="@color/recycler_view_background_2"
+    tools:context=".recyclerview.RecyclerViewFragment">
 
+    <ProgressBar
+        android:id="@+id/re_bar1"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_v"
         android:layout_width="match_parent"

@@ -12,15 +12,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAndroid">
-        <activity android:name=".HomePage" />
-        <activity android:name=".Register" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activitise.function.CoinActivity"></activity>
+        <activity android:name=".activitise.function.MyCollectActivity" />
+        <activity android:name=".activitise.common.ShareUserActivity" />
+        <activity
+            android:name=".activitise.function.SearchActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitise.function.ProjectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitise.function.KnowledgeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activitise.common.WebActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".log_and_register.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".log_and_register.LogInActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activitise.main.HomePageActivity"
+            android:label="wanAndroid"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
     </application>
 
 </manifest>

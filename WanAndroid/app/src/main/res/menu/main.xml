@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/add_collect"
+        android:icon="@drawable/xing3"
+        android:title="@string/collect"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/add_share"
+        android:icon="@drawable/share3"
+        app:showAsAction="ifRoom"
+        android:title="@string/share" />
+</menu>

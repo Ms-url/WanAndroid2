@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.main.HomePageFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/home_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/rectangle_select_w"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:src="@mipmap/mue" />
+
+            <TextView
+                android:id="@+id/home_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="8dp"
+                android:layout_weight="16"
+                android:background="@null"
+                android:hint="@string/search_hint"
+                android:inputType="text"
+                android:lines="1" />
+
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/sou" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="24sp"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/dot_1"
+                    android:src="@drawable/dot_big_bl"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/dot_2"
+                    android:src="@drawable/dot_big"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+
+                <ImageView
+                    android:id="@+id/dot_3"
+                    android:src="@drawable/dot_big"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:background="@color/tab_background"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/teal_200"
+        app:tabIndicatorHeight="5dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/teal_200"
+        app:tabTextAppearance="@style/TabTextStyle"
+        app:tabTextColor="@color/tab_text" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/home_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5.5" />
+
+</LinearLayout>
