@@ -118,7 +118,8 @@ public class JsonAnalyze {
                 String desc = jsonObjectk.getString("desc");
                 String chapterName = jsonObjectk.getString("chapterName");
                 int id = jsonObjectk.getInt("id");
-                list.add(new CollectData(title, niceDate, link, desc, chapterName, null, id));
+                int originId = jsonObjectk.getInt("originId");
+                list.add(new CollectData(title, niceDate, link, desc, chapterName, null, id,originId));
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -1,6 +1,9 @@
 package com.example.wanandroid.adapter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,15 +16,38 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.activitise.common.ShareUserActivity;
 import com.example.wanandroid.activitise.common.WebActivity;
 import com.example.wanandroid.dataClass.CollectData;
-import com.example.wanandroid.dataClass.UsefulData;
+import com.example.wanandroid.dataClass.ErrorMsgData;
+import com.example.wanandroid.tools.JsonAnalyze;
+import com.example.wanandroid.tools.POSTConnection_2;
+import com.google.android.material.transition.Hold;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class CollectArticleAdapter extends RecyclerView.Adapter<CollectArticleAdapter.ViewHolder> {
     private List<CollectData> mdata;
+    POSTConnection_2 postConnection_2 = new POSTConnection_2();
+    private String responseData;
+    ErrorMsgData errorMsgData1 = new ErrorMsgData();
+    JsonAnalyze jsonAnalyze = new JsonAnalyze();
+    private View vi;
+
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1:
+                    Toast.makeText(vi.getContext(),"取消成功",Toast.LENGTH_SHORT).show();
+                    break;
+                case 2:
+                    Toast.makeText(vi.getContext(),"取消失败",Toast.LENGTH_SHORT).show();
+
+            }
+        }
+    };
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView textView_title;
@@ -49,6 +75,9 @@ public class CollectArticleAdapter extends RecyclerView.Adapter<CollectArticleAd
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.re_collect_item, parent, false);
         final ViewHolder holder = new ViewHolder(view);
 
+        SharedPreferences save_da = parent.getContext().getSharedPreferences("cook_data", MODE_PRIVATE);
+        String cook = save_da.getString("cookie", "");
+
         holder.textView_title.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +99,21 @@ public class CollectArticleAdapter extends RecyclerView.Adapter<CollectArticleAd
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //取消收藏
+                vi = v;
+                int position = holder.getAdapterPosition();
+                CollectData usefulData = mdata.get(position);
+                String originId = String.valueOf(usefulData.getOriginId());
+                holder.imageView.setImageResource(R.drawable.xing1);
+                new Thread(() -> {
+                    Log.e("取消收藏", "begin");
+                    responseData = postConnection_2.sendGetNetRequest("https://www.wanandroid.com/lg/uncollect_originId/" + originId + "/json", cook);
+                    jsonAnalyze.JsonDataGet_share_web(responseData, errorMsgData1);
+                    if (errorMsgData1.getErrorCode() == 0) {
+                        showResponse(1);
+                    } else {
+                        showResponse(2);
+                   }
+                }).start();
             }
         });
 
@@ -91,4 +134,14 @@ public class CollectArticleAdapter extends RecyclerView.Adapter<CollectArticleAd
         return mdata.size();
     }
 
+    private void showResponse(int num) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Message message = new Message();
+                message.what = num;
+                handler.sendMessage(message);
+            }
+        }).start();
+    }
 }

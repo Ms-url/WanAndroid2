@@ -9,8 +9,9 @@ public class CollectData {
     private String chapterName;
     private String superChapterName;
     private int id;
+    private int originId;
 
-    public CollectData(String title, String niceDate, String link, String desc, String chapterName, String superChapterName, int id) {
+    public CollectData(String title, String niceDate, String link, String desc, String chapterName, String superChapterName, int id,int originId) {
         this.title = title;
         this.niceDate = niceDate;
         this.link = link;
@@ -18,6 +19,15 @@ public class CollectData {
         this.chapterName = chapterName;
         this.superChapterName = superChapterName;
         this.id = id;
+        this.originId = originId;
+    }
+
+    public int getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(int originId) {
+        this.originId = originId;
     }
 
     public String getTitle() {

@@ -13,6 +13,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -99,7 +100,6 @@ public class MyCollectActivity extends AppCompatActivity {
         textView_rank = findViewById(R.id.c_my_rank);
         textView_login = findViewById(R.id.log_in_text);
         progressBar = findViewById(R.id.re_my_collect_bar);
-
         SharedPreferences user_da = getSharedPreferences("user_data", MODE_PRIVATE);
         userId = String.valueOf(user_da.getInt("user_id", 0));
         SharedPreferences save_da = getSharedPreferences("cook_data", MODE_PRIVATE);
