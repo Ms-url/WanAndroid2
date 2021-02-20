@@ -17,18 +17,23 @@
 # 功能:
 
 ## 登录和注册
-![image](https://github.com/shswz176/WanwanAndroid/tree/wanAndroid/WanAndroid/app/Screenshot_20210220_102834.jpg)
+
 
 * 可以游客进入，也可以注册登录，登录和注册时会弹出对话框提示用户等待，返回的错误信息会用toast弹出提示
+![VIDEO_022014164972597](https://user-images.githubusercontent.com/73435804/108591477-f0b21c00-73a3-11eb-98d1-a08f1e231fe8.gif)
 
 * 账号和密码设置了长度限制，输入框会实时监听输入的长度，长度不够时，图标会变成红色
+![VIDEO_02201420335894](https://user-images.githubusercontent.com/73435804/108591432-b2b4f800-73a3-11eb-8879-d735d1fc1e40.gif)
 
 * 登录成功后会将cookie储存在sharedpreference中，当sharedpreference中有数据后进入App会直接从登录界面跳转至主界面，实现自动登录功能
 
 ## 主页面
 主页面中放置了 首页、体系、广场、我的 四个fragment，可通过点击下方的按钮来切换
+![VIDEO_022014242949679](https://user-images.githubusercontent.com/73435804/108591542-3ec71f80-73a4-11eb-9a5e-5d18f58c2ff5.gif)
+
 ### 首页
 * 首页顶部为一个banner，非网络请求图片，无点击效应，由viewpager充当，小圆点可指示位置
+![VIDEO_022016381319852](https://user-images.githubusercontent.com/73435804/108591591-76ce6280-73a4-11eb-9faf-0d42ddce43a5.gif)
 
 * banner下方的viewpager的两个页面为fragment，显示请求获得的文章和常用网站；
 置顶文章会被标示出来，登录后已收藏的文章会显示红心；常用网站布局为scrollview包裹的横向瀑布流 
