@@ -18,7 +18,7 @@
 
 ## 登录和注册
 
- 登录成功后会将cookie储存在sharedpreference中，当sharedpreference中有数据时
+* 登录成功后会将cookie储存在sharedpreference中，当sharedpreference中有数据后进入App会直接从登录界面跳转至主界面，实现自动登录功能
 
 
 
