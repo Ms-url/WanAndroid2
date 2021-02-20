@@ -1,5 +1,6 @@
 # WanAndroid
-
+项目只在wanAndroid包，其他为误传！<Br/>
+<Br/>
 该APP使用的是wanAndroid开放API  <Br/>
 <Br/>
 未使用MVP架构
