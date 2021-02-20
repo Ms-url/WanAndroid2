@@ -287,7 +287,6 @@ public class JsonAnalyze {
         }
     }
 
-
     public void JsonDataGet_my_coin(String jsonData, List<CoinData> list) {
         try {
             JSONObject jsonObject = new JSONObject(jsonData);
