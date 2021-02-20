@@ -56,20 +56,25 @@
 ### 我的
 * 点击退出登录会清除sharedpreference中的数据
 * 点击其他的选项会跳转到相应界面
-* 
+* ![VIDEO_022016543285639](https://user-images.githubusercontent.com/73435804/108593833-227daf80-73b1-11eb-86ae-ef6dfe83bb2d.gif)
 ## 搜索 
 * 为wanAndroid搜索接口
 * 点击首页和体系的搜索框会跳转到同一搜索界面
 * 搜索结果由两个轮换fragment显示 
 * 点击取消会先隐藏搜索结果Fragment，再次点击会退出搜索界面
+* ![VIDEO_022016545232712](https://user-images.githubusercontent.com/73435804/108593980-0a5a6000-73b2-11eb-9d0d-a577102ea96c.gif)
+* ![VIDEO_022016545233290](https://user-images.githubusercontent.com/73435804/108594086-c6b42600-73b2-11eb-9cdb-947d89342c16.gif)
+
 ## 分享人文章列表
 * 点击分享人可获取分享人分享的文章列表
+* ![VIDEO_022016545233552](https://user-images.githubusercontent.com/73435804/108594151-27436300-73b3-11eb-985b-9ead042f39a6.gif)
+
 ## 我的收藏 
 * 我的收藏会拉取用户收藏的文章和网站以及用户的等级信息
 ## 我的积分 
 * 我的积分会显示积分获取情况，和积分排行，未登录时会提示登录 
 * ![VIDEO_022016543285255](https://user-images.githubusercontent.com/73435804/108593781-ac794880-73b0-11eb-8118-3f61f75d6f88.gif)
-* ![VIDEO_022016543285639](https://user-images.githubusercontent.com/73435804/108593833-227daf80-73b1-11eb-86ae-ef6dfe83bb2d.gif)
+
 # 待提升的地方和心得体会
 * 没有下拉刷新和向下载更多的功能 
 * 主页面使用的是4个fragment切换，由于fragment中又嵌套了fragment，导致fragment过多，如果连续快速切换会造成闪退 ←_← →_→
