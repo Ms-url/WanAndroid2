@@ -317,7 +317,7 @@ public class JsonAnalyze {
                 String coinCount =String.valueOf(jsonObjectk.getInt("coinCount")) ;
                 String level=String.valueOf(jsonObjectk.getInt("level")) ;
                 String rank=String.valueOf(jsonObjectk.getInt("rank")) ;
-                list.add(new CoinData(null,null,coinCount,level,username,rank)  );
+                list.add(new CoinData(null,null,coinCount,level,username,rank));
             }
         } catch (JSONException e) {
             e.printStackTrace();

@@ -2,17 +2,20 @@ package com.example.wanandroid.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.wanandroid.R;
+import com.example.wanandroid.activitise.common.ShareUserActivity;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.activitise.common.WebActivity;
 
@@ -121,6 +124,24 @@ public class ProjectActivityAdapter extends RecyclerView.Adapter<ProjectActivity
                 view.getContext().startActivity(intent);
             }
         });
+
+        holder.textView_shareUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = holder.getAdapterPosition();
+                UsefulData usefulData = mdata.get(position);
+                int userId = usefulData.getUserId();
+                Log.e("userId item", String.valueOf(userId));
+                if (userId == -1) {
+                    Toast.makeText(v.getContext(), "非wanAndroid用户", Toast.LENGTH_SHORT).show();
+                } else {
+                    Intent intent = new Intent(view.getContext(), ShareUserActivity.class);
+                    intent.putExtra("userId", userId);
+                    view.getContext().startActivity(intent);
+                }
+            }
+        });
+
         return holder;
     }
 
