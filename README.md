@@ -32,11 +32,12 @@
 * ![VIDEO_022014242949679](https://user-images.githubusercontent.com/73435804/108591542-3ec71f80-73a4-11eb-9a5e-5d18f58c2ff5.gif)
 
 ### 首页
-* 首页顶部为一个banner，非网络请求图片，无点击效应，由viewpager充当，小圆点可指示位置
+* 首页顶部为一个banner，由viewpager充当，小圆点可指示位置
 * ![VIDEO_022016381319852](https://user-images.githubusercontent.com/73435804/108591591-76ce6280-73a4-11eb-9faf-0d42ddce43a5.gif)
 
 * banner下方的viewpager的两个页面为fragment，显示请求获得的文章和常用网站；
-置顶文章会被标示出来，登录后已收藏的文章会显示红心；常用网站布局为scrollview包裹的横向瀑布流 
+* 置顶文章会被标示出来
+* 登录后已收藏的文章会显示红心；常用网站布局为scrollview包裹的横向瀑布流 
 * ![VIDEO_022020124724414](https://user-images.githubusercontent.com/73435804/108594957-0af5f500-73b8-11eb-91d6-6cdee5dccbdd.gif)
 
 * 点击标题会将文章跳转到webActivity中打开
@@ -51,9 +52,16 @@
 #### 项目 
 * 项目item的图片为请求获取  
 * 跳转顺序为 item → projectActivity or knowledgeActivity → webActivity
+* 点击project link可进入该项目（github）
+* ![VIDEO_022020285219776](https://user-images.githubusercontent.com/73435804/108595331-4d203600-73ba-11eb-9f8d-55d7e28ace61.gif)
+* ![VIDEO_022020295977393](https://user-images.githubusercontent.com/73435804/108595463-f9fab300-73ba-11eb-84ff-c8247e211c2b.gif)
+
+
 ### 广场
 * 广场会获取广场中的文章
 * 如果没有登录，"我的分享″会提示登录，登录后会获取用户分享的文章
+* ![VIDEO_02202031080348](https://user-images.githubusercontent.com/73435804/108595516-39290400-73bb-11eb-98c5-d20ce15f0fc2.gif)
+
 ### 我的
 * 点击退出登录会清除sharedpreference中的数据
 * 点击其他的选项会跳转到相应界面
