@@ -37,6 +37,7 @@
 
 * banner下方的viewpager的两个页面为fragment，显示请求获得的文章和常用网站；
 置顶文章会被标示出来，登录后已收藏的文章会显示红心；常用网站布局为scrollview包裹的横向瀑布流 
+* ![VIDEO_022020124724414](https://user-images.githubusercontent.com/73435804/108594957-0af5f500-73b8-11eb-91d6-6cdee5dccbdd.gif)
 
 * 点击标题会将文章跳转到webActivity中打开
 
@@ -67,13 +68,16 @@
 
 ## 分享人文章列表
 * 点击分享人可获取分享人分享的文章列表
-* ![VIDEO_022016545233552](https://user-images.githubusercontent.com/73435804/108594151-27436300-73b3-11eb-985b-9ead042f39a6.gif)
+* ![VIDEO_02202005463717](https://user-images.githubusercontent.com/73435804/108594813-1694ec00-73b7-11eb-832d-ec82e9d79473.gif)
+* ![VIDEO_022020091976777](https://user-images.githubusercontent.com/73435804/108594891-98851500-73b7-11eb-9734-84c7a1385552.gif)
 
 ## 我的收藏 
 * 我的收藏会拉取用户收藏的文章和网站以及用户的等级信息
+* ![VIDEO_022020004780393](https://user-images.githubusercontent.com/73435804/108594714-8787d400-73b6-11eb-9693-481a25782384.gif)
+
 ## 我的积分 
 * 我的积分会显示积分获取情况，和积分排行，未登录时会提示登录 
-* ![VIDEO_022016543285255](https://user-images.githubusercontent.com/73435804/108593781-ac794880-73b0-11eb-8118-3f61f75d6f88.gif)
+* ![VIDEO_022019465637050](https://user-images.githubusercontent.com/73435804/108594382-b8ffa000-73b4-11eb-88a1-9ef8f9e6bef0.gif)
 
 # 待提升的地方和心得体会
 * 没有下拉刷新和向下载更多的功能 
