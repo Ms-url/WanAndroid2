@@ -2,6 +2,7 @@ package com.example.wanandroid.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -127,7 +128,7 @@ public class CommonsAdapter extends RecyclerView.Adapter<CommonsAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull CommonsAdapter.ViewHolder holder, int position) {
         UsefulData usefulData = mdata.get(position);
-        holder.textView_title.setText(usefulData.getTitle());
+        holder.textView_title.setText(Html.fromHtml(usefulData.getTitle()));
         holder.textView_superChapterName.setText(usefulData.getSuperChapterName());
         holder.textView_niceTime.setText(usefulData.getNiceDate());
         holder.textView_chapterName.setText(usefulData.getChapterName());
