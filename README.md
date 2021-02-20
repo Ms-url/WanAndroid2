@@ -17,6 +17,7 @@
 # 功能:
 
 ## 登录和注册
+![image](https://github.com/shswz176/WanwanAndroid/tree/wanAndroid/WanAndroid/app/Screenshot_20210220_102834.jpg)
 
 * 可以游客进入，也可以注册登录，登录和注册时会弹出对话框提示用户等待，返回的错误信息会用toast弹出提示
 
