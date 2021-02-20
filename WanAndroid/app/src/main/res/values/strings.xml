@@ -30,24 +30,13 @@
     <string name="log_in_text">点击登录</string>
     <string name="coin_get">我的积分</string>
     <string name="coin_rank">积分排行</string>
-    <string name="visitor_log_in">游客登录</string>
+    <string name="visitor_log_in">游客进入</string>
     <string name="log_in_second_title">Welcome wanAndroid</string>
     <string name="way_of_log">—— 其他方式登录 ——</string>
     <string name="collect_web">收藏网站</string>
     <string name="collect_article">收藏文章</string>
     <string name="cancel">取消</string>
     <string name="nan_article">你还没有分享过文章哦,快来和小伙伴们一起分享吧</string>
-    <string name="about_msg">wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroidwanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid
-        \wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid\wanAndroid </string>
-
+   <string name="about_msg">wanAndroid开放API  wanAndroid开放API  wanAndroid开放API  wanAndroid开放API  </string>
 
 </resources>

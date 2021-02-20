@@ -5,6 +5,7 @@ import android.util.Log;
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.CoinData;
 import com.example.wanandroid.dataClass.CollectData;
+import com.example.wanandroid.dataClass.ErrorMsgData;
 import com.example.wanandroid.dataClass.TreeData;
 import com.example.wanandroid.dataClass.UsefulData;
 import com.example.wanandroid.dataClass.WebData;
@@ -339,13 +340,13 @@ public class JsonAnalyze {
         }
     }
 
-    public void JsonDataGet_share_web(String jsonData, String data ,String errorMsg, int errorCode) {
+    public void JsonDataGet_share_web(String jsonData, ErrorMsgData errorMsgData) {
         try {
+            Log.e("webpost","entry");
             JSONObject jsonObject = new JSONObject(jsonData);
-             data = jsonObject.getString("data");
-             errorMsg = jsonObject.getString("errorMsg");
-             errorCode = jsonObject.getInt("errorCode");
-             Log.e("errorCode", String.valueOf(errorCode));
+             errorMsgData.setErrorMsg(jsonObject.getString("errorMsg")) ;
+             errorMsgData.setErrorCode(jsonObject.getInt("errorCode"));
+             Log.e("errorCode", String.valueOf(errorMsgData.getErrorCode()));
 
         } catch (JSONException e) {
             e.printStackTrace();
