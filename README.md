@@ -36,7 +36,10 @@
 * 暂不支持点击item上的心形收藏，收藏与分享只能在webActivity中进行
 ### 体系
 * 体系页面有知识体系和项目两页
+#### 知识体系 
 * 知识体系页为两个ListView ，可通过点击左方Listview索引右方内容
+#### 项目 
+* 项目item的图片为请求获取  
 * 跳转顺序为 item → projectActivity or knowledgeActivity → webActivity
 ### 广场
 * 广场会请求获取广场中的文章
