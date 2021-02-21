@@ -56,7 +56,9 @@ public class WebActivity extends AppCompatActivity {
                     break;
                 case 5:
                     Toast.makeText(WebActivity.this, errorMsgData3.getErrorMsg(), Toast.LENGTH_SHORT).show();
-
+                    break;
+                case 6:
+                    Toast.makeText(WebActivity.this, "请求超时", Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -74,14 +76,19 @@ public class WebActivity extends AppCompatActivity {
             case R.id.add_collect:
                 new Thread(() -> {
                     re = post_connection_2.sendGetNetRequest("https://www.wanandroid.com/lg/collect/" + cid + "/json", cook);
-                    jsonAnalyze.JsonDataGet_share_web(re,errorMsgData1);
-                    Log.e("errorCode1", String.valueOf(errorMsgData1.getErrorCode()));
-                    if (errorMsgData1.getErrorCode() == 0) {
-                        showResponse(3);
-                    } else {
-                        showResponse(1);
+                    if (re.equals("1")){
+                        showResponse(6);
+                    }else {
+                        jsonAnalyze.JsonDataGet_share_web(re,errorMsgData1);
+                        Log.e("errorCode1", String.valueOf(errorMsgData1.getErrorCode()));
+                        if (errorMsgData1.getErrorCode() == 0) {
+                            showResponse(3);
+                        } else {
+                            showResponse(1);
+                        }
+                        Log.e("re", re);
                     }
-                    Log.e("re", re);
+
                 }).start();
                 break;
             case R.id.add_share:
@@ -90,13 +97,18 @@ public class WebActivity extends AppCompatActivity {
                     map.put("title", title);
                     map.put("link", link);
                     re2 = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/user_article/add/json", map, cook);
-                    jsonAnalyze.JsonDataGet_share_web(re2, errorMsgData2);
-                    if (errorMsgData2.getErrorCode()== 0) {
-                        showResponse(4);
-                    } else {
-                        showResponse(2);
+                    if (re2.equals("1")){
+                        showResponse(6);
+                    }else {
+                        jsonAnalyze.JsonDataGet_share_web(re2, errorMsgData2);
+                        if (errorMsgData2.getErrorCode()== 0) {
+                            showResponse(4);
+                        } else {
+                            showResponse(2);
+                        }
+                        Log.e("re2", re2);
                     }
-                    Log.e("re2", re2);
+
                 }).start();
                 break;
             case R.id.web_collect:
@@ -105,13 +117,18 @@ public class WebActivity extends AppCompatActivity {
                     map.put("name", title);
                     map.put("link", link);
                     re3 = post_connection.sendGetNetRequest("https://www.wanandroid.com/lg/collect/addtool/json", map, cook);
-                    jsonAnalyze.JsonDataGet_share_web(re3,errorMsgData3);
-                    if (errorMsgData3.getErrorCode() == 0) {
-                        showResponse(3);
-                    } else {
-                        showResponse(5);
+                    if (re3.equals("1")){
+                        showResponse(6);
+                    }else {
+                        jsonAnalyze.JsonDataGet_share_web(re3,errorMsgData3);
+                        if (errorMsgData3.getErrorCode() == 0) {
+                            showResponse(3);
+                        } else {
+                            showResponse(5);
+                        }
+                        Log.e("re3", re3);
                     }
-                    Log.e("re3", re3);
+
                 }).start();
         }
         return true;

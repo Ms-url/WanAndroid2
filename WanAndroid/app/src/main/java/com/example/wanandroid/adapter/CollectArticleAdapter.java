@@ -44,6 +44,9 @@ public class CollectArticleAdapter extends RecyclerView.Adapter<CollectArticleAd
                     break;
                 case 2:
                     Toast.makeText(vi.getContext(),"取消失败",Toast.LENGTH_SHORT).show();
+                    break;
+                case 3:
+                    Toast.makeText(vi.getContext(),"请求超时",Toast.LENGTH_SHORT).show();
 
             }
         }
@@ -107,12 +110,17 @@ public class CollectArticleAdapter extends RecyclerView.Adapter<CollectArticleAd
                 new Thread(() -> {
                     Log.e("取消收藏", "begin");
                     responseData = postConnection_2.sendGetNetRequest("https://www.wanandroid.com/lg/uncollect_originId/" + originId + "/json", cook);
-                    jsonAnalyze.JsonDataGet_share_web(responseData, errorMsgData1);
-                    if (errorMsgData1.getErrorCode() == 0) {
-                        showResponse(1);
-                    } else {
-                        showResponse(2);
-                   }
+                    if (responseData.equals("1")){
+                        showResponse(3);
+                    }else {
+                        jsonAnalyze.JsonDataGet_share_web(responseData, errorMsgData1);
+                        if (errorMsgData1.getErrorCode() == 0) {
+                            showResponse(1);
+                        } else {
+                            showResponse(2);
+                        }
+                    }
+
                 }).start();
             }
         });
