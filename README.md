@@ -73,6 +73,7 @@
 * 点击取消会先隐藏搜索结果Fragment，再次点击会退出搜索界面
 * ![VIDEO_022016545232712](https://user-images.githubusercontent.com/73435804/108593980-0a5a6000-73b2-11eb-9d0d-a577102ea96c.gif)
 * ![VIDEO_022016545233290](https://user-images.githubusercontent.com/73435804/108594086-c6b42600-73b2-11eb-9cdb-947d89342c16.gif)
+* 注：最新上传apk中htlm码已解析
 
 ## 分享人文章列表
 * 点击分享人可获取分享人分享的文章列表
