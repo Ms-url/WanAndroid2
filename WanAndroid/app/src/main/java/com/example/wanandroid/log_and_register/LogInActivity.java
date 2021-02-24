@@ -94,20 +94,20 @@ public class LogInActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
-                cookie_data.putString("cookie", "loginUserName_wanandroid_com=Ms-url;token_pass_wanandroid_com=3e3be32c9fb0361dc09e120671e801b3;JSESSIONID=A6B832814D8FD80CB52F87BC13B84854;token_pass=3e3be32c9fb0361dc09e120671e801b3");
-                save_data.putString("username", "Ms-url");
-                save_data.putString("password", "url123");
-                save_data.putInt("user_id",87723);
-                cookie_data.apply();
-                save_data.apply();
-                startActivity(intent);
-                //测试专用通道
-            }
-        });
+//        textView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(LogInActivity.this, HomePageActivity.class);
+//                cookie_data.putString("cookie", "loginUserName_wanandroid_com=Ms-url;token_pass_wanandroid_com=3e3be32c9fb0361dc09e120671e801b3;JSESSIONID=A6B832814D8FD80CB52F87BC13B84854;token_pass=3e3be32c9fb0361dc09e120671e801b3");
+//                save_data.putString("username", "Ms-url");
+//                save_data.putString("password", "url123");
+//                save_data.putInt("user_id",87723);
+//                cookie_data.apply();
+//                save_data.apply();
+//                startActivity(intent);
+//                //测试专用通道
+//            }
+//        });
 
         textView_visitor_log.setOnClickListener(new View.OnClickListener() {
             @Override
