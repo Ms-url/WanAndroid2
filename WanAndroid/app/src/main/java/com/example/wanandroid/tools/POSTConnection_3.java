@@ -28,15 +28,13 @@ public class POSTConnection_3 {
         this.responseData = responseData;
     }
 
-    private URL url;
     private HttpURLConnection connection;
     private String cook="";
 
     public List<String> sendGetNetRequest(String murl, HashMap<String, String> params) {
         POSTConnection_3 post_connection = new POSTConnection_3();
         try {
-            cook="";
-            url = new URL(murl);
+            URL  url = new URL(murl);
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setConnectTimeout(9000);
@@ -48,16 +46,7 @@ public class POSTConnection_3 {
             for (String key : params.keySet()) {
                 dataTowrite.append(key).append("=").append(params.get(key)).append("&");
             }
-
-
             connection.connect();
-
-
-            Map<String, List<String>> cookies_t = connection.getHeaderFields();
-            List<String> cookie_t = cookies_t.get("Set-Cookie");
-            for (int i = 0; i < cookie_t.size(); i++) {
-                Log.e("cookie", cookie_t.get(i));
-            }
 
             OutputStream outputStream = connection.getOutputStream();
             outputStream.write(dataTowrite.substring(0, dataTowrite.length() - 1).getBytes());
@@ -81,7 +70,7 @@ public class POSTConnection_3 {
 
         List<String> list = new ArrayList<>();
 
-        Map<String, List<String>> cookies_t2 = connection.getHeaderFields();
+       Map<String, List<String>> cookies_t2 = connection.getHeaderFields();
         List<String> cookie_t2 = cookies_t2.get("Set-Cookie");
         for (int i = 0; i < cookie_t2.size(); i++) {
             Log.e("cookie", cookie_t2.get(i));
