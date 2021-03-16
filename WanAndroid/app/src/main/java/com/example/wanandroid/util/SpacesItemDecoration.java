@@ -1,4 +1,4 @@
-package com.example.wanandroid.tools;
+package com.example.wanandroid.util;
 
 import android.graphics.Rect;
 import android.view.View;

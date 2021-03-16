@@ -8,15 +8,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.wanandroid.tools.GETConnection;
-import com.example.wanandroid.tools.JsonAnalyze;
+import com.example.wanandroid.util.GETConnection;
+import com.example.wanandroid.util.JsonAnalyze;
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.TreeData;
 import com.example.wanandroid.adapter.ProjectTreeAdapter2;

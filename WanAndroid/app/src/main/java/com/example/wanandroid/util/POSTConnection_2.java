@@ -1,4 +1,4 @@
-package com.example.wanandroid.tools;
+package com.example.wanandroid.util;
 
 import android.util.Log;
 
@@ -6,14 +6,12 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.HashMap;
 
-public class POSTConnection {
+public class POSTConnection_2 {
 
     private String responseData;
 
@@ -25,27 +23,18 @@ public class POSTConnection {
         this.responseData = responseData;
     }
 
-    public String sendGetNetRequest(String murl, HashMap<String, String> params) {
-        POSTConnection post_connection = new POSTConnection();
+    public String sendGetNetRequest(String murl, String cook) {
+        POSTConnection_2 post_connection = new POSTConnection_2();
         try {
             URL url = new URL(murl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
+
+            connection.setRequestProperty("cookie",cook);
+
             connection.setConnectTimeout(5000);
             connection.setReadTimeout(5000);
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-
-            StringBuilder dataTowrite = new StringBuilder();
-            for(String key : params.keySet()){
-                dataTowrite.append(key).append("=").append(params.get(key)).append("&");
-            }
-
             connection.connect();
-
-            OutputStream outputStream =connection.getOutputStream();
-            outputStream.write(dataTowrite.substring(0,dataTowrite.length()-1).getBytes());
-
             InputStream in = connection.getInputStream();
             Log.e("send", "ok");
             post_connection.setResponseData(StreamToString(in));

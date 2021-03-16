@@ -19,12 +19,10 @@ import com.example.wanandroid.R;
 import com.example.wanandroid.activitise.common.WebActivity;
 import com.example.wanandroid.dataClass.CollectData;
 import com.example.wanandroid.dataClass.ErrorMsgData;
-import com.example.wanandroid.tools.JsonAnalyze;
-import com.example.wanandroid.tools.POSTConnection_2;
-import com.google.android.material.transition.Hold;
+import com.example.wanandroid.util.JsonAnalyze;
+import com.example.wanandroid.util.POSTConnection_2;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static android.content.Context.MODE_PRIVATE;
 

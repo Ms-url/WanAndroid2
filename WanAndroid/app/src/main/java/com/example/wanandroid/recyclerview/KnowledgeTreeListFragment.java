@@ -15,8 +15,8 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.wanandroid.tools.GETConnection;
-import com.example.wanandroid.tools.JsonAnalyze;
+import com.example.wanandroid.util.GETConnection;
+import com.example.wanandroid.util.JsonAnalyze;
 import com.example.wanandroid.activitise.function.KnowledgeActivity;
 import com.example.wanandroid.adapter.KnowledgeTreeListAdapter;
 import com.example.wanandroid.R;

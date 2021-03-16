@@ -3,7 +3,6 @@ package com.example.wanandroid.recyclerview;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -16,10 +15,10 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.wanandroid.tools.GETConnection;
-import com.example.wanandroid.tools.JsonAnalyze;
+import com.example.wanandroid.util.GETConnection;
+import com.example.wanandroid.util.JsonAnalyze;
 import com.example.wanandroid.R;
-import com.example.wanandroid.tools.SpacesItemDecoration;
+import com.example.wanandroid.util.SpacesItemDecoration;
 import com.example.wanandroid.dataClass.WebData;
 import com.example.wanandroid.adapter.WebRecyclerViewAdapter;
 

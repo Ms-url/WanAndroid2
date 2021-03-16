@@ -1,4 +1,4 @@
-package com.example.wanandroid.tools;
+package com.example.wanandroid.util;
 
 import android.util.Log;
 
@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class POSTConnection_2 {
+public class GETConnection_2 {
 
     private String responseData;
 
@@ -23,34 +23,34 @@ public class POSTConnection_2 {
         this.responseData = responseData;
     }
 
-    public String sendGetNetRequest(String murl, String cook) {
-        POSTConnection_2 post_connection = new POSTConnection_2();
+    public String sendGetNetRequest(String murl,String cook) {
+        GETConnection_2 get_connection = new GETConnection_2();
         try {
             URL url = new URL(murl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("GET");
+            connection.setConnectTimeout(5000);
+            connection.setReadTimeout(5000);
 
             connection.setRequestProperty("cookie",cook);
 
-            connection.setConnectTimeout(5000);
-            connection.setReadTimeout(5000);
             connection.connect();
             InputStream in = connection.getInputStream();
             Log.e("send", "ok");
-            post_connection.setResponseData(StreamToString(in));
+            get_connection.setResponseData(StreamToString(in));
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (ProtocolException e) {
             e.printStackTrace();
-            post_connection.setResponseData("1");
+            get_connection.setResponseData("1");
             Log.e("time1", "请求超时");
         } catch (IOException e) {
             e.printStackTrace();
-            post_connection.setResponseData("1");
+            get_connection.setResponseData("1");
             Log.e("time2", "请求超时");
         }
-        String finally_responseData = post_connection.getResponseData();
+        String finally_responseData = get_connection.getResponseData();
         return finally_responseData;
     }
 

@@ -1,7 +1,6 @@
-package com.example.wanandroid.tools;
+package com.example.wanandroid.util;
 
 import android.util.Log;
-import android.view.View;
 
 import java.io.BufferedReader;
 import java.io.IOException;

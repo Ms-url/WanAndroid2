@@ -21,8 +21,8 @@ import com.example.wanandroid.adapter.KnowledgeTreeListAdapter;
 import com.example.wanandroid.dataClass.TreeData;
 import com.example.wanandroid.fragment.search.SearchResultFragment1;
 import com.example.wanandroid.fragment.search.SearchResultFragment2;
-import com.example.wanandroid.tools.GETConnection;
-import com.example.wanandroid.tools.JsonAnalyze;
+import com.example.wanandroid.util.GETConnection;
+import com.example.wanandroid.util.JsonAnalyze;
 
 import java.util.ArrayList;
 import java.util.List;

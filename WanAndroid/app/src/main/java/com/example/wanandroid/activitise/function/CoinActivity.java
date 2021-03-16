@@ -12,7 +12,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
 import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,8 +19,8 @@ import android.widget.Toast;
 import com.example.wanandroid.R;
 import com.example.wanandroid.fragment.coin.CoinRankFragment;
 import com.example.wanandroid.fragment.coin.MyCoinGetFragment;
-import com.example.wanandroid.tools.GETConnection;
-import com.example.wanandroid.tools.JsonAnalyze;
+import com.example.wanandroid.util.GETConnection;
+import com.example.wanandroid.util.JsonAnalyze;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;

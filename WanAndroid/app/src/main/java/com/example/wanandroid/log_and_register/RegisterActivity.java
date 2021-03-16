@@ -21,8 +21,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.wanandroid.R;
-import com.example.wanandroid.tools.POSTConnection;
-import com.example.wanandroid.tools.POSTConnection_1;
+import com.example.wanandroid.util.POSTConnection;
 
 import org.json.JSONException;
 import org.json.JSONObject;

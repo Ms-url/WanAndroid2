@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,12 +20,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.adapter.CoinRankAdapter;
-import com.example.wanandroid.adapter.MyCoinAdapter;
 import com.example.wanandroid.dataClass.CoinData;
 import com.example.wanandroid.log_and_register.LogInActivity;
-import com.example.wanandroid.tools.GETConnection_2;
-import com.example.wanandroid.tools.JsonAnalyze;
-import com.example.wanandroid.tools.SpacesItemDecoration;
+import com.example.wanandroid.util.GETConnection_2;
+import com.example.wanandroid.util.JsonAnalyze;
+import com.example.wanandroid.util.SpacesItemDecoration;
 
 import java.util.ArrayList;
 import java.util.List;

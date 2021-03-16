@@ -4,7 +4,6 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -26,7 +25,7 @@ import android.widget.Toast;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.activitise.main.HomePageActivity;
-import com.example.wanandroid.tools.POSTConnection_3;
+import com.example.wanandroid.util.POSTConnection_3;
 
 import org.json.JSONException;
 import org.json.JSONObject;

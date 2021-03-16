@@ -20,9 +20,9 @@ import android.widget.Toast;
 import com.example.wanandroid.R;
 import com.example.wanandroid.adapter.CommonsAdapter;
 import com.example.wanandroid.dataClass.UsefulData;
-import com.example.wanandroid.tools.JsonAnalyze;
-import com.example.wanandroid.tools.POSTConnection_1;
-import com.example.wanandroid.tools.SpacesItemDecoration;
+import com.example.wanandroid.util.JsonAnalyze;
+import com.example.wanandroid.util.POSTConnection_1;
+import com.example.wanandroid.util.SpacesItemDecoration;
 
 import java.util.ArrayList;
 import java.util.HashMap;

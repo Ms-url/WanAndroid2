@@ -17,9 +17,9 @@ import android.widget.Toast;
 
 import com.example.wanandroid.R;
 import com.example.wanandroid.dataClass.ErrorMsgData;
-import com.example.wanandroid.tools.JsonAnalyze;
-import com.example.wanandroid.tools.POSTConnection_1;
-import com.example.wanandroid.tools.POSTConnection_2;
+import com.example.wanandroid.util.JsonAnalyze;
+import com.example.wanandroid.util.POSTConnection_1;
+import com.example.wanandroid.util.POSTConnection_2;
 
 import java.util.HashMap;
 
