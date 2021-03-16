@@ -25,6 +25,8 @@ public class POSTConnection_1 {
         this.responseData = responseData;
     }
 
+    //带cookie请求
+    //key x 2
     public String sendGetNetRequest(String murl, HashMap<String, String> params,String cook) {
         POSTConnection_1 post_connection = new POSTConnection_1();
         try {

@@ -23,6 +23,8 @@ public class POSTConnection_2 {
         this.responseData = responseData;
     }
 
+    //带cookie请求
+    //拼接在网址上类
     public String sendGetNetRequest(String murl, String cook) {
         POSTConnection_2 post_connection = new POSTConnection_2();
         try {

@@ -24,7 +24,7 @@ import com.example.wanandroid.R;
 import com.example.wanandroid.adapter.MyCoinAdapter;
 import com.example.wanandroid.dataClass.CoinData;
 import com.example.wanandroid.log_and_register.LogInActivity;
-import com.example.wanandroid.util.GETConnection_2;
+import com.example.wanandroid.util.GETConnection_1;
 import com.example.wanandroid.util.JsonAnalyze;
 import com.example.wanandroid.util.SpacesItemDecoration;
 
@@ -38,7 +38,7 @@ public class MyCoinGetFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<CoinData> list = new ArrayList<>();
     private MyCoinAdapter dataAdapter = new MyCoinAdapter(list);
-    GETConnection_2 get_connection = new GETConnection_2();
+    GETConnection_1 get_connection = new GETConnection_1();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
     private ProgressBar progressBar;

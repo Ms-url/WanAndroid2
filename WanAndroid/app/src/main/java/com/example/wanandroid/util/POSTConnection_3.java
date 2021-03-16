@@ -31,6 +31,7 @@ public class POSTConnection_3 {
     private HttpURLConnection connection;
     private String cook="";
 
+    //可获取cookie请求
     public List<String> sendGetNetRequest(String murl, HashMap<String, String> params) {
         POSTConnection_3 post_connection = new POSTConnection_3();
         try {
@@ -70,7 +71,10 @@ public class POSTConnection_3 {
 
         List<String> list = new ArrayList<>();
 
+        //HeaderFields的获取要在请求完成后
        Map<String, List<String>> cookies_t2 = connection.getHeaderFields();
+
+        //获取cookie
         List<String> cookie_t2 = cookies_t2.get("Set-Cookie");
         for (int i = 0; i < cookie_t2.size(); i++) {
             Log.e("cookie", cookie_t2.get(i));

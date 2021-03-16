@@ -25,6 +25,7 @@ public class POSTConnection {
         this.responseData = responseData;
     }
 
+    //一般POST请求
     public String sendGetNetRequest(String murl, HashMap<String, String> params) {
         POSTConnection post_connection = new POSTConnection();
         try {

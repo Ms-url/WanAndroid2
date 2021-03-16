@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 
-public class GETConnection_2 {
+public class GETConnection_1 {
 
     private String responseData;
 
@@ -23,8 +23,9 @@ public class GETConnection_2 {
         this.responseData = responseData;
     }
 
+    //带cookie请求
     public String sendGetNetRequest(String murl,String cook) {
-        GETConnection_2 get_connection = new GETConnection_2();
+        GETConnection_1 get_connection = new GETConnection_1();
         try {
             URL url = new URL(murl);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

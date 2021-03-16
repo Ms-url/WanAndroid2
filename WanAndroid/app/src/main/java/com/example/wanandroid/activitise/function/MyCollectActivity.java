@@ -22,7 +22,7 @@ import com.example.wanandroid.adapter.CollectWebRecyclerViewAdapter;
 import com.example.wanandroid.dataClass.CollectData;
 import com.example.wanandroid.dataClass.WebData;
 import com.example.wanandroid.log_and_register.LogInActivity;
-import com.example.wanandroid.util.GETConnection_2;
+import com.example.wanandroid.util.GETConnection_1;
 import com.example.wanandroid.util.JsonAnalyze;
 
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class MyCollectActivity extends AppCompatActivity {
     private List<Integer> list_user_data2 = new ArrayList<>();
     private CollectArticleAdapter dataAdapter = new CollectArticleAdapter(list_collect_article);
     private CollectWebRecyclerViewAdapter webRecyclerViewAdapter = new CollectWebRecyclerViewAdapter(list_collect_web);
-    GETConnection_2 get_connection = new GETConnection_2();
+    GETConnection_1 get_connection = new GETConnection_1();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData1;
     private String responseData2;

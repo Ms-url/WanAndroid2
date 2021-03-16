@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.wanandroid.util.GETConnection_2;
+import com.example.wanandroid.util.GETConnection_1;
 import com.example.wanandroid.util.JsonAnalyze;
 import com.example.wanandroid.R;
 import com.example.wanandroid.util.SpacesItemDecoration;
@@ -33,7 +33,7 @@ public class PublicSquareRecyclerViewFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<UsefulData> list = new ArrayList<>();
     private PublicSquareAdapter dataAdapter = new PublicSquareAdapter(list);
-    GETConnection_2 get_connection = new GETConnection_2();
+    GETConnection_1 get_connection = new GETConnection_1();
     JsonAnalyze jsonAnalyze = new JsonAnalyze();
     private String responseData;
     private ProgressBar progressBar;
