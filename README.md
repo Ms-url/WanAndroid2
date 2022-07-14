@@ -1,5 +1,5 @@
 # WanAndroid
-* 项目只在wanAndroid包，其他为误传！
+* 项目只在wanAndroid包
 
 * 该APP使用的是wanAndroid开放API  
 
